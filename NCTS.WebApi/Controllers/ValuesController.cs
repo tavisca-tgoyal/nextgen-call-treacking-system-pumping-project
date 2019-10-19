@@ -14,7 +14,11 @@ namespace NCTS.WebApi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+        //    CallTreeServices callTreeServices = new CallTreeServices();
+        //    var List<CallTreeProxy> list = callTreeServices.GetProxyObjects();
+        //    dbServices.Insert(CallTreeTranslator.ToModel(list));
+              return Ok();
+
         }
 
         // GET api/values/5
