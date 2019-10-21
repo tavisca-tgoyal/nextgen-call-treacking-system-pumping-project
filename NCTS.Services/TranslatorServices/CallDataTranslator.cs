@@ -19,7 +19,8 @@ namespace NCTS.Services.TranslatorServices
                     application = call._source.application,
                     environment = call._source.environment,
                     call_action = call._source.call_action,
-                    employee_id = call._source.employee_id
+                    employee_id = call._source.employee_id,
+                    alarm_name = call._source.alarm_name
                 });
             }
             return callData;
