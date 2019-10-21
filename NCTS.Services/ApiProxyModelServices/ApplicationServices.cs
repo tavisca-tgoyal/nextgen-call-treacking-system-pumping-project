@@ -14,7 +14,7 @@ namespace NCTS.Services.ApiProxyModelServices
         public List<AppProxy> ApplicationList;
         public IEnumerable<AppProxy> GetProxyObjects()
         {            
-         string path = @"C:\Users\tgoyal\source\repos\nextgen-call-treacking-system-pumping-project\NCTS.Services\applications.json";
+         string path = @"..\NCTS.Services\applications.json";
 
             using (StreamReader r = new StreamReader(path))
             {

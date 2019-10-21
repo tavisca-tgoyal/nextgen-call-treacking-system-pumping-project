@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using NCTS.Contracts.Models.ApiProxyModels;
+using NCTS.Contracts.Models.DBModels;
+using NCTS.Services.ApiProxyModelServices;
+using NCTS.Services.Utility;
 
 namespace NCTS.WebApi.Controllers
 {
@@ -12,12 +16,15 @@ namespace NCTS.WebApi.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<CallTreeProxy>> Get()
         {
-        //    CallTreeServices callTreeServices = new CallTreeServices();
-        //    var List<CallTreeProxy> list = callTreeServices.GetProxyObjects();
-        //    dbServices.Insert(CallTreeTranslator.ToModel(list));
-              return Ok();
+            //CallTreeServices callTreeServices = new CallTreeServices();
+            //var callTreeList = callTreeServices.GetProxyObjects();
+            //    dbServices.Insert(CallTreeTranslator.ToModel(list));
+            ////CallHour callHour = new CallHour();
+            ////return callHour.GetEmployeeHours();
+            //CallDataServices callDataServices = new CallDataServices();
+            //return callTreeList.ToList();
 
         }
 

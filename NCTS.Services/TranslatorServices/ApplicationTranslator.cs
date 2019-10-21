@@ -13,7 +13,7 @@ namespace NCTS.Services.TranslatorServices
         public List<Application> ToModel(List<AppProxy> proxyModelList)
         {
             List<Application> applicationList = new List<Application>();
-            foreach (var item in proxyModelList[0].Property1)
+            foreach (var item in proxyModelList)
             {
                 applicationList.Add(new Application()
                 {

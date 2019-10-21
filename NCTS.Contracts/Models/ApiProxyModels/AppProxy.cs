@@ -6,11 +6,11 @@ namespace NCTS.Contracts.Models.ApiProxyModels
 {
     public class AppProxy
     {
-        public Class3[] Property1 { get; set; }
-    }
+    //    public Class3[] Property1 { get; set; }
+    //}
 
-    public class Class3
-    {
+    //public class Class3
+    //{
         public string name { get; set; }
         public string description { get; set; }
         public string githubRepo { get; set; }
