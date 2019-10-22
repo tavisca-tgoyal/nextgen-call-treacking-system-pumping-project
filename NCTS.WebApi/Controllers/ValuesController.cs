@@ -16,6 +16,7 @@ namespace NCTS.WebApi.Controllers
     public class ValuesController : ControllerBase
     {
         // GET api/values
+<<<<<<< HEAD
         [HttpGet]
         public ActionResult<IEnumerable<Employee>> Get()
         {
@@ -30,8 +31,20 @@ namespace NCTS.WebApi.Controllers
             //var employeeProxyList = employeeServices.GetProxyObjects();
             //var employeeList = employeeTranslator.ToModel(employeeProxyList.ToList());
             //return employeeList.ToList();
+=======
+        //[HttpGet]
+        //public ActionResult<IEnumerable<CallTreeProxy>> Get()
+        //{
+        //    //CallTreeServices callTreeServices = new CallTreeServices();
+        //    //var callTreeList = callTreeServices.GetProxyObjects();
+        //    //    dbServices.Insert(CallTreeTranslator.ToModel(list));
+        //    ////CallHour callHour = new CallHour();
+        //    ////return callHour.GetEmployeeHours();
+        //    //CallDataServices callDataServices = new CallDataServices();
+        //    //return callTreeList.ToList();
+>>>>>>> 6d6074273964c60e49f52b5980b5cfd3f7c7e492
 
-        }
+        //}
 
         // GET api/values/5
         [HttpGet("{id}")]
