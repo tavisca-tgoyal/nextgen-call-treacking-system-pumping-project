@@ -8,14 +8,14 @@ using System.Text;
 
 namespace NCTS.Services.Utility
 {
-    public class CallHour
+    public class EmployeeHour
     {
         private CallTreeServices _callTreeServices;
         private CallTreeTranslator _callTreeTranslator;
         private int _numberOfHours = 15;
         List<EmployeeHours> employeeHours = new List<EmployeeHours>();
 
-        public CallHour()
+        public EmployeeHour()
         {
             _callTreeServices = new CallTreeServices();
             _callTreeTranslator = new CallTreeTranslator();
