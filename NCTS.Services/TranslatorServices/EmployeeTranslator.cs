@@ -16,12 +16,12 @@ namespace NCTS.Services.TranslatorServices
             {
                 employeeList.Add(new Employee()
                 {
-                    Email = employee.Property1[0].Email,
-                    EmployeeId = employee.Property1[0].EmployeeId,
-                    FirstName = employee.Property1[0].FirstName,
-                    Id = employee.Property1[0].Id,
-                    LastName = employee.Property1[0].LastName,
-                    PhoneNumber = employee.Property1[0].PhoneNumber
+                    Email = employee.Email,
+                    EmployeeId = employee.EmployeeId,
+                    FirstName = employee.FirstName,
+                    Id = employee.Id,
+                    LastName = employee.LastName,
+                    PhoneNumber = employee.PhoneNumber
                 });
             }
             return employeeList;

@@ -20,10 +20,12 @@ namespace NCTS.Services.TranslatorServices
                     environment = call._source.environment,
                     call_action = call._source.call_action,
                     employee_id = call._source.employee_id,
-                    alarm_name = call._source.alarm_name
+                    alarm_name = call._source.alarm_name,
+                    datetime = call._source.time_stamp;
                 });
             }
             return callData;
         }
+
     }
 }

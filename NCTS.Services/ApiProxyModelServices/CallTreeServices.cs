@@ -43,7 +43,6 @@ namespace NCTS.Services.ApiProxyModelServices
             }
             return callTreeProxyList;
         }
-
         private static string GetCallTreeJsonString(string callTreeApi)
         {
             string temp = new WebClient().DownloadString(callTreeApi);

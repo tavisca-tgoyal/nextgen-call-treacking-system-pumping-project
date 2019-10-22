@@ -11,5 +11,6 @@ namespace NCTS.Contracts.Models.DBModels
         public string employee_id { get; set; }
         public string application { get; set; }
         public string environment { get; set; }
+        public DateTime  datetime { get; set; }
     }
 }
