@@ -15,18 +15,18 @@ namespace NCTS.WebApi.Controllers
     public class ValuesController : ControllerBase
     {
         // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<CallTreeProxy>> Get()
-        {
-            //CallTreeServices callTreeServices = new CallTreeServices();
-            //var callTreeList = callTreeServices.GetProxyObjects();
-            //    dbServices.Insert(CallTreeTranslator.ToModel(list));
-            ////CallHour callHour = new CallHour();
-            ////return callHour.GetEmployeeHours();
-            //CallDataServices callDataServices = new CallDataServices();
-            //return callTreeList.ToList();
+        //[HttpGet]
+        //public ActionResult<IEnumerable<CallTreeProxy>> Get()
+        //{
+        //    //CallTreeServices callTreeServices = new CallTreeServices();
+        //    //var callTreeList = callTreeServices.GetProxyObjects();
+        //    //    dbServices.Insert(CallTreeTranslator.ToModel(list));
+        //    ////CallHour callHour = new CallHour();
+        //    ////return callHour.GetEmployeeHours();
+        //    //CallDataServices callDataServices = new CallDataServices();
+        //    //return callTreeList.ToList();
 
-        }
+        //}
 
         // GET api/values/5
         [HttpGet("{id}")]
