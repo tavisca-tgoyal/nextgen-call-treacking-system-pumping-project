@@ -13,6 +13,7 @@ using NCTS.DatabaseServices;
 using NCTS.Services.ApiProxyModelServices;
 using NCTS.Services.TranslatorServices;
 using NCTS.Services.Utility;
+using Serilog;
 
 namespace NCTS.WebApi.Controllers
 {
@@ -34,6 +35,8 @@ namespace NCTS.WebApi.Controllers
 
             List<EmployeeProxy> employeeProxies = apiModelServices.GetProxyObjects().ToList();
             _databaseServices.InsertEmployees(translator.ToModel(employeeProxies));
+
+            Log.Information("Employee Data is passed to Database Layer Successfully");
         }
 
         [Route("api/pump/Application")]
@@ -44,6 +47,8 @@ namespace NCTS.WebApi.Controllers
 
             List<AppProxy> appProxies = apiModelServices.GetProxyObjects().ToList();
             _databaseServices.InsertApplications(translator.ToModel(appProxies));
+
+            Log.Information("Application data is Passed to Database Layer Successfully");
         }
 
         [Route("api/pump/CallData")]
@@ -54,6 +59,8 @@ namespace NCTS.WebApi.Controllers
 
             List<CallDataProxy> callDataProxies = apiModelServices.GetProxyObjects().ToList();
             _databaseServices.InsertCallData(translator.ToModel(callDataProxies));
+
+            Log.Information("Call data is Passed to Database Layer Successfully");
         }
 
         [Route("api/pump/CallTree")]
@@ -64,6 +71,8 @@ namespace NCTS.WebApi.Controllers
 
             List<CallTreeProxy> callTreeProxies = apiModelServices.GetProxyObjects().ToList();
             _databaseServices.InsertCallTrees(translator.ToModel(callTreeProxies));
+
+            Log.Information("CallTree data is Passed to Database Layer Successfully");
         }
 
         [Route("api/pump/EmployeeHours")]
@@ -71,6 +80,8 @@ namespace NCTS.WebApi.Controllers
         {
             EmployeeHour employeeHourList = new EmployeeHour();
             _databaseServices.InsertEmployeeHours(employeeHourList.GetEmployeeHours());
+
+            Log.Information("EmployeeHour data is Passed to Database Layer Successfully");
         }
     }
 }

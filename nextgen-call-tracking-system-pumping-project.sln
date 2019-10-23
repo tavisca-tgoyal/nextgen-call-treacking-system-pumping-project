@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCTS.Contracts", "NCTS.Cont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCTS.Tests", "NCTS.Tests\NCTS.Tests.csproj", "{B2F0D7E2-14D6-4910-AE9E-5EE1CC915431}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCTS.DatabaseServices", "NCTS.DatabaseServices\NCTS.DatabaseServices.csproj", "{39CDB0C3-7F02-44AA-BC31-18CBF0FB0CAB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCTS.DatabaseMiddleWare", "NCTS.DatabaseServices\NCTS.DatabaseMiddleWare.csproj", "{39CDB0C3-7F02-44AA-BC31-18CBF0FB0CAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

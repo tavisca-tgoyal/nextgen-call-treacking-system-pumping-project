@@ -17,7 +17,7 @@ namespace NCTS.Services.TranslatorServices
             {
                 applicationList.Add(new Application()
                 {
-                    Name = item.name
+                    ApplicationName = item.name
                 });
             }
             return applicationList;

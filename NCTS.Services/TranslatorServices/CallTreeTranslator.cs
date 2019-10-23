@@ -16,11 +16,11 @@ namespace NCTS.Services.TranslatorServices
             {
                 callTreeList.Add(new CallTree()
                 {
-                    Application = proxyModel.Application,
+                    ApplicationName = proxyModel.Application,
                     Environment = proxyModel.Environment,
-                    Level1 = proxyModel.Level1,
-                    Level2 = proxyModel.Level2,
-                    Level3 = proxyModel.Level3
+                    Level1Employee = proxyModel.Level1,
+                    Level2Employee = proxyModel.Level2,
+                    Level3Employee = proxyModel.Level3
                 });
             }
             return callTreeList;

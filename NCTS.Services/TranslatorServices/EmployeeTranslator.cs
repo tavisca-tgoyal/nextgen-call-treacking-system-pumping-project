@@ -17,11 +17,11 @@ namespace NCTS.Services.TranslatorServices
                 employeeList.Add(new Employee()
                 {
                     Email = employee.Email,
-                    EmployeeId = employee.EmployeeId,
+                    EmployeeCode = employee.EmployeeId,
                     FirstName = employee.FirstName,
                     Id = employee.Id,
                     LastName = employee.LastName,
-                    PhoneNumber = employee.PhoneNumber
+                    PhoneNumber = employee.PhoneNumber                    
                 });
             }
             return employeeList;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using NCTS.Contracts.Models.DBModels;
+using Serilog;
 
 namespace NCTS.DatabaseServices
 {
@@ -9,7 +10,9 @@ namespace NCTS.DatabaseServices
     {
         public void InsertApplications(List<Application> applicationList)
         {
-            throw new NotImplementedException();
+            Log.Information("Application DB Model List Received");
+            Log.Information(applicationList.ToString());
+           
         }
 
         public void InsertCallData(List<CallData> callDataList)
@@ -29,7 +32,8 @@ namespace NCTS.DatabaseServices
 
         public void InsertEmployees(List<Employee> employeeList)
         {
-            throw new NotImplementedException();
+            Log.Information("employee List received");
+            Log.Information(employeeList.ToString());
         }
     }
 }

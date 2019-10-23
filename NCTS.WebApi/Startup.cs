@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NCTS.DatabaseServices;
+using Serilog;
 
 namespace NCTS.WebApi
 {
@@ -28,8 +29,9 @@ namespace NCTS.WebApi
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSingleton<IDatabaseServices, DatabaseService>();
+            StartLogger();
 
-        }
+        }        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -46,6 +48,15 @@ namespace NCTS.WebApi
 
             app.UseHttpsRedirection();
             app.UseMvc();
+        }
+
+        private void StartLogger()
+        {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Verbose()
+                .WriteTo.File(@"..\NCTS.Services\Logs\Logging.txt", rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+           
         }
     }
 }

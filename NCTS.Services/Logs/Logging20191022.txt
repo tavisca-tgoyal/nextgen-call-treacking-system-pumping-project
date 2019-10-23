@@ -1,0 +1,2 @@
+2019-10-22 15:29:15.377 +05:30 [INF] employee List received
+2019-10-22 15:29:15.472 +05:30 [INF] System.Collections.Generic.List`1[NCTS.Contracts.Models.DBModels.Employee]

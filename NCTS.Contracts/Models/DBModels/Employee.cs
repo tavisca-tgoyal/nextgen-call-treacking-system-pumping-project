@@ -11,6 +11,7 @@ namespace NCTS.Contracts.Models.DBModels
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        public string EmployeeId { get; set; }
+        public string EmployeeCode { get; set; }
+        public string Squad { get; set; } = "NA";
     }
 }
