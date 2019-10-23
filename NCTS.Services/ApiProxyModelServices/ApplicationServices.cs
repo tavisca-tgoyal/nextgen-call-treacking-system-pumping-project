@@ -14,9 +14,8 @@ namespace NCTS.Services.ApiProxyModelServices
         public List<AppProxy> ApplicationList;
         public IEnumerable<AppProxy> GetProxyObjects()
         {            
-         string path = @"..\NCTS.Services\applications.json";
 
-            using (StreamReader r = new StreamReader(path))
+            using (StreamReader r = new StreamReader(typeof(ApplicationServices).Assembly.GetManifestResourceStream("NCTS.Services.applications.json")))
             {
                 string json = r.ReadToEnd();
                 ApplicationList = JsonConvert.DeserializeObject<List<AppProxy>>(json);
