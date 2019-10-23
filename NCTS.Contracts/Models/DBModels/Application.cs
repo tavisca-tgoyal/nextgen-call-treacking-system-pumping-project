@@ -6,6 +6,6 @@ namespace NCTS.Contracts.Models.DBModels
 {
     public class Application
     {
-        public string Name;
+        public string ApplicationName;
     }
 }

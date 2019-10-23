@@ -30,16 +30,16 @@ namespace NCTS.Services.Utility
             List<int> employeeIdList = new List<int>();
             foreach (var callTree in callTreeList)
             {
-                employeeIdList.Add(callTree.Level1);
-                employeeIdList.Add(callTree.Level2);
-                employeeIdList.Add(callTree.Level3);
+                employeeIdList.Add(callTree.Level1Employee);
+                employeeIdList.Add(callTree.Level2Employee);
+                employeeIdList.Add(callTree.Level3Employee);
             }
             List<int> distinctEmployeeIdList = employeeIdList.Distinct().ToList();
             foreach (var employeeId in distinctEmployeeIdList)
             {
                 employeeHours.Add(new EmployeeHours()
                 {
-                    Id = employeeId,
+                    EmployeeId = employeeId,
                     Hours = _numberOfHours
                 });
             }

@@ -10,9 +10,7 @@ namespace NCTS.DatabaseServices
     {
         public void InsertApplications(List<Application> applicationList)
         {
-            Log.Information("Application DB Model List Received");
-            Log.Information(applicationList.ToString());
-           
+            throw new NotImplementedException();
         }
 
         public void InsertCallData(List<CallData> callDataList)
@@ -32,8 +30,7 @@ namespace NCTS.DatabaseServices
 
         public void InsertEmployees(List<Employee> employeeList)
         {
-            Log.Information("employee List received");
-            Log.Information(employeeList.ToString());
+            throw new NotImplementedException();
         }
     }
 }

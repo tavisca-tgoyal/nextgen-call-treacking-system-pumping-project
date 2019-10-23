@@ -6,7 +6,7 @@ namespace NCTS.Contracts.Models.DBModels
 {
     public class EmployeeHours
     {
-        public int Id { get; set; }
+        public int EmployeeId { get; set; }
         public int Hours { get; set; }
     }
 }

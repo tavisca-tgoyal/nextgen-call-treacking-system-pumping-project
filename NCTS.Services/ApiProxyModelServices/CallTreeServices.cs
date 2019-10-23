@@ -33,7 +33,7 @@ namespace NCTS.Services.ApiProxyModelServices
             {
                 foreach (var app in applicationList)
                 {
-                    string application = app.Name;
+                    string application = app.ApplicationName;
                     string callTreeApi = "https://chatops.common.cnxloyalty.com/api/calltree/" + application + "/" + environment;
                     //we call this method asynchronously in future
                     string callTreeString = GetCallTreeJsonString(callTreeApi);
