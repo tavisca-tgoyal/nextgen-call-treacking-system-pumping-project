@@ -25,13 +25,8 @@ namespace NCTS.Services.ApiProxyModelServices
         }
         public async Task<List<CallTreeProxy>> GetProxyObjects()
         {
-            await StartCallTreeFetchingProcess();
-            return callTreeProxyList;
-        }
-
-        private async Task StartCallTreeFetchingProcess()
-        {
             await GetCallTreeAsync();
+            return callTreeProxyList;
         }
 
         private async Task GetCallTreeAsync()

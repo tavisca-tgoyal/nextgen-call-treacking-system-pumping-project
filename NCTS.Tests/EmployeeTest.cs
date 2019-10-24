@@ -3,6 +3,7 @@ using NCTS.Services.ApiProxyModelServices;
 using NCTS.Services.TranslatorServices;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace NCTS.Tests
@@ -16,9 +17,9 @@ namespace NCTS.Tests
         }
 
         [Fact]
-        public void Testing_Employee_DB_Model_Return_By_Employee_Translator_Services()
+        public async Task Testing_Employee_DB_Model_Return_By_Employee_Translator_Services()
         {
-            var employeeProxyModel = _employeeServices.GetProxyObjects().ToList();
+            var employeeProxyModel = await _employeeServices.GetProxyObjects();
             var employeeDbModel = EmployeeTranslator.ToModel(employeeProxyModel);
             Assert.IsType<Employee>(employeeDbModel[0]);
         }

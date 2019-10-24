@@ -6,13 +6,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace NCTS.Services.ApiProxyModelServices
 {
     public class ApplicationServices : IApplicationServices
     {
         public List<AppProxy> ApplicationList;
-        public IEnumerable<AppProxy> GetProxyObjects()
+        public List<AppProxy> GetProxyObjects()
         { 
             using (StreamReader r = new StreamReader(typeof(ApplicationServices).Assembly.GetManifestResourceStream("NCTS.Services.applications.json")))
             {

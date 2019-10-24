@@ -6,13 +6,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace NCTS.Services.ApiProxyModelServices
 {
     public class CallDataServices : ICallDataServices
     {
         public List<CallDataProxy> CallDataList;
-        public IEnumerable<CallDataProxy> GetProxyObjects()
+        public List<CallDataProxy> GetProxyObjects()
         {
             const string Format = "http://logs.stage.oski.io/_plugin/kibana/elasticsearch/_msearch";
 

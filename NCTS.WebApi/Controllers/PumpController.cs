@@ -21,16 +21,24 @@ namespace NCTS.WebApi.Controllers
     public class PumpController : ControllerBase
     {
         private IDatabaseServices _databaseServices;
-        public PumpController(IDatabaseServices DatabaseService)
+        private IEmployeeServices _employeeServices;
+        private IApplicationServices _applicationServices;
+        private ICallDataServices _callDataServices;
+        private ICallTreeServices _callTreeServices;
+
+        public PumpController(IDatabaseServices DatabaseService, IEmployeeServices EmployeeServices, IApplicationServices ApplicationServices, ICallDataServices CallDataServices, ICallTreeServices CallTreeServices)
         {
             _databaseServices = DatabaseService;
+            _employeeServices = EmployeeServices;
+            _applicationServices = ApplicationServices;
+            _callDataServices = CallDataServices;
+            _callTreeServices = CallTreeServices;
         }
 
         [Route("api/pump/employee")]
-        public void PumpEmployees()
+        public async Task PumpEmployees()
         {
-            IEmployeeServices apiModelServices = new EmployeeServices();
-            List<EmployeeProxy> employeeProxies = apiModelServices.GetProxyObjects().ToList();
+            List<EmployeeProxy> employeeProxies = await _employeeServices.GetProxyObjects();
             _databaseServices.InsertEmployees(EmployeeTranslator.ToModel(employeeProxies));
 
             Log.Information("Employee Data is passed to Database Layer Successfully");
@@ -39,9 +47,7 @@ namespace NCTS.WebApi.Controllers
         [Route("api/pump/Application")]
         public void PumpApplication()
         {
-            IApplicationServices apiModelServices = new ApplicationServices();
-
-            List<AppProxy> appProxies = apiModelServices.GetProxyObjects().ToList();
+            List<AppProxy> appProxies = _applicationServices.GetProxyObjects();
             _databaseServices.InsertApplications(ApplicationTranslator.ToModel(appProxies));
 
             Log.Information("Application data is Passed to Database Layer Successfully");
@@ -50,22 +56,17 @@ namespace NCTS.WebApi.Controllers
         [Route("api/pump/CallData")]
         public void PumpCallData()
         {
-            ICallDataServices apiModelServices = new CallDataServices();
-
-            List<CallDataProxy> callDataProxies = apiModelServices.GetProxyObjects().ToList();
+            List<CallDataProxy> callDataProxies = _callDataServices.GetProxyObjects();
             _databaseServices.InsertCallData(CallDataTranslator.ToModel(callDataProxies));
 
             Log.Information("Call data is Passed to Database Layer Successfully");
         }
 
         [Route("api/pump/CallTree")]
-        public async Task<ActionResult> PumpCallTree()
+        public async Task PumpCallTree()
         {
-            ICallTreeServices apiModelServices = new CallTreeServices();
-
-            List<CallTreeProxy> callTreeProxies = await apiModelServices.GetProxyObjects();
-            return Ok(callTreeProxies);
-            //_databaseServices.InsertCallTrees(CallTreeTranslator.ToModel(callTreeProxies));
+            List<CallTreeProxy> callTreeProxies = await _callTreeServices.GetProxyObjects();
+            _databaseServices.InsertCallTrees(CallTreeTranslator.ToModel(callTreeProxies));
 
             Log.Information("CallTree data is Passed to Database Layer Successfully");
         }

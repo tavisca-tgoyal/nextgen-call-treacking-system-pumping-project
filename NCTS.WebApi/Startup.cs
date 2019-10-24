@@ -10,7 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using NCTS.Contracts.Interfaces.ApiProxyModel;
 using NCTS.DatabaseServices;
+using NCTS.Services.ApiProxyModelServices;
 using Serilog;
 
 namespace NCTS.WebApi
@@ -29,6 +31,12 @@ namespace NCTS.WebApi
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSingleton<IDatabaseServices, DatabaseService>();
+            services.AddSingleton<IEmployeeServices, EmployeeServices>();
+            services.AddSingleton<IApplicationServices, ApplicationServices>();
+            services.AddSingleton<ICallDataServices, CallDataServices>();
+            services.AddSingleton<ICallTreeServices, CallTreeServices>();
+
+
             StartLogger();
 
         }        
