@@ -12,18 +12,16 @@ namespace NCTS.Tests
     public class CallDataTest
     {
         private CallDataServices _callDataServices;
-        private CallDataTranslator _callDataTranslator;
         public CallDataTest()
         {
             _callDataServices = new CallDataServices();
-            _callDataTranslator = new CallDataTranslator();
         }
 
         [Fact]
         public void Testing_CallData_DB_Model_Return_By_CallData_Translator_Services()
         {
             var callDataProxyModel = _callDataServices.GetProxyObjects().ToList();
-            var callDataDbModel = _callDataTranslator.ToModel(callDataProxyModel);
+            var callDataDbModel = CallDataTranslator.ToModel(callDataProxyModel);
             Assert.IsType<CallData>(callDataDbModel[0]);
         }
     }

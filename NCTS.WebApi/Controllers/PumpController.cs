@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NCTS.Contracts;
 using NCTS.Contracts.Interfaces.ApiProxyModel;
-using NCTS.Contracts.Interfaces.Translator;
 using NCTS.Contracts.Models.ApiProxyModels;
 using NCTS.Contracts.Models.DBModels;
 using NCTS.DatabaseServices;
@@ -30,11 +29,9 @@ namespace NCTS.WebApi.Controllers
         [Route("api/pump/employee")]
         public void PumpEmployees()
         {
-            IApiModelServices<EmployeeProxy> apiModelServices = new EmployeeServices();
-            ITranslator<Employee,EmployeeProxy> translator = new EmployeeTranslator();
-
+            IEmployeeServices apiModelServices = new EmployeeServices();
             List<EmployeeProxy> employeeProxies = apiModelServices.GetProxyObjects().ToList();
-            _databaseServices.InsertEmployees(translator.ToModel(employeeProxies));
+            _databaseServices.InsertEmployees(EmployeeTranslator.ToModel(employeeProxies));
 
             Log.Information("Employee Data is passed to Database Layer Successfully");
         }
@@ -42,11 +39,10 @@ namespace NCTS.WebApi.Controllers
         [Route("api/pump/Application")]
         public void PumpApplication()
         {
-            IApiModelServices<AppProxy> apiModelServices = new ApplicationServices();
-            ITranslator<Application, AppProxy> translator = new ApplicationTranslator();
+            IApplicationServices apiModelServices = new ApplicationServices();
 
             List<AppProxy> appProxies = apiModelServices.GetProxyObjects().ToList();
-            _databaseServices.InsertApplications(translator.ToModel(appProxies));
+            _databaseServices.InsertApplications(ApplicationTranslator.ToModel(appProxies));
 
             Log.Information("Application data is Passed to Database Layer Successfully");
         }
@@ -54,32 +50,31 @@ namespace NCTS.WebApi.Controllers
         [Route("api/pump/CallData")]
         public void PumpCallData()
         {
-            IApiModelServices<CallDataProxy> apiModelServices = new CallDataServices();
-            ITranslator<CallData, CallDataProxy> translator = new CallDataTranslator();
+            ICallDataServices apiModelServices = new CallDataServices();
 
             List<CallDataProxy> callDataProxies = apiModelServices.GetProxyObjects().ToList();
-            _databaseServices.InsertCallData(translator.ToModel(callDataProxies));
+            _databaseServices.InsertCallData(CallDataTranslator.ToModel(callDataProxies));
 
             Log.Information("Call data is Passed to Database Layer Successfully");
         }
 
         [Route("api/pump/CallTree")]
-        public void PumpCallTree()
+        public async Task<ActionResult> PumpCallTree()
         {
-            IApiModelServices<CallTreeProxy> apiModelServices = new CallTreeServices();
-            ITranslator<CallTree, CallTreeProxy> translator = new CallTreeTranslator();
+            ICallTreeServices apiModelServices = new CallTreeServices();
 
-            List<CallTreeProxy> callTreeProxies = apiModelServices.GetProxyObjects().ToList();
-            _databaseServices.InsertCallTrees(translator.ToModel(callTreeProxies));
+            List<CallTreeProxy> callTreeProxies = await apiModelServices.GetProxyObjects();
+            return Ok(callTreeProxies);
+            //_databaseServices.InsertCallTrees(CallTreeTranslator.ToModel(callTreeProxies));
 
             Log.Information("CallTree data is Passed to Database Layer Successfully");
         }
 
         [Route("api/pump/EmployeeHours")]
-        public void PumpEmployeeHours()
+        public async Task PumpEmployeeHours()
         {
             EmployeeHour employeeHourList = new EmployeeHour();
-            _databaseServices.InsertEmployeeHours(employeeHourList.GetEmployeeHours());
+            _databaseServices.InsertEmployeeHours(await employeeHourList.GetEmployeeHours());
 
             Log.Information("EmployeeHour data is Passed to Database Layer Successfully");
         }

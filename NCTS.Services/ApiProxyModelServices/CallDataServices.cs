@@ -9,7 +9,7 @@ using System.Text;
 
 namespace NCTS.Services.ApiProxyModelServices
 {
-    public class CallDataServices : IApiModelServices<CallDataProxy>
+    public class CallDataServices : ICallDataServices
     {
         public List<CallDataProxy> CallDataList;
         public IEnumerable<CallDataProxy> GetProxyObjects()

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace NCTS.Services.ApiProxyModelServices
 {
-    public class EmployeeServices : IApiModelServices<EmployeeProxy>
+    public class EmployeeServices : IEmployeeServices
     {
         List<EmployeeProxy> EmployeeList; 
         public IEnumerable<EmployeeProxy> GetProxyObjects()

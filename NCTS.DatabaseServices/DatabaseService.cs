@@ -9,7 +9,7 @@ namespace NCTS.DatabaseServices
 {
     public class DatabaseService : IDatabaseServices
     {
-        private string _connection;
+        private readonly string _connection;
         public DatabaseService()
         {
             _connection = "SERVER=127.0.0.1;PORT=3306;DATABASE=oncalltracking;UID=root;PASSWORD=123456";
@@ -17,11 +17,11 @@ namespace NCTS.DatabaseServices
 
         public void InsertApplications(List<Application> applicationList)
         {
-            SqlConnection sqlConnection = new SqlConnection(_connection);
-            foreach (var application in applicationList)
-            {
+            //SqlConnection sqlConnection = new SqlConnection(_connection);
+            //foreach (var application in applicationList)
+            //{
 
-            }
+            //}
         }
 
         public void InsertCallData(List<CallData> callDataList)

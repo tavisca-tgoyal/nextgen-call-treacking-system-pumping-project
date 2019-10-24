@@ -1,5 +1,4 @@
-﻿using NCTS.Contracts.Interfaces.Translator;
-using NCTS.Contracts.Models.ApiProxyModels;
+﻿using NCTS.Contracts.Models.ApiProxyModels;
 using NCTS.Contracts.Models.DBModels;
 using System;
 using System.Collections.Generic;
@@ -7,9 +6,9 @@ using System.Text;
 
 namespace NCTS.Services.TranslatorServices
 {
-    public class CallDataTranslator : ITranslator<CallData, CallDataProxy>
+    public static class CallDataTranslator 
     {
-        public List<CallData> ToModel(List<CallDataProxy> proxyModelList)
+        public static List<CallData> ToModel(List<CallDataProxy> proxyModelList)
         {
             var callData = new List<CallData>();
             foreach (var call in proxyModelList[0].responses[0].hits.hits)

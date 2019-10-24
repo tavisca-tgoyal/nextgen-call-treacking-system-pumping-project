@@ -5,26 +5,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace NCTS.Services.Utility
 {
     public class EmployeeHour
     {
         private CallTreeServices _callTreeServices;
-        private CallTreeTranslator _callTreeTranslator;
         private int _numberOfHours = 15;
         List<EmployeeHours> employeeHours = new List<EmployeeHours>();
 
         public EmployeeHour()
         {
             _callTreeServices = new CallTreeServices();
-            _callTreeTranslator = new CallTreeTranslator();
         }
 
-        public List<EmployeeHours> GetEmployeeHours()
+        public async Task<List<EmployeeHours>> GetEmployeeHours()
         {
-            var callTreeProxyModelList = _callTreeServices.GetProxyObjects().ToList();
-            var callTreeList = _callTreeTranslator.ToModel(callTreeProxyModelList);
+            var callTreeProxyModelList = await _callTreeServices.GetProxyObjects();
+            var callTreeList =CallTreeTranslator.ToModel(callTreeProxyModelList);
             if (DateTime.Today.DayOfWeek == DayOfWeek.Sunday || DateTime.Today.DayOfWeek == DayOfWeek.Saturday)
                 _numberOfHours = 24;
             List<int> employeeIdList = new List<int>();

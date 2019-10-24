@@ -9,12 +9,11 @@ using System.Text;
 
 namespace NCTS.Services.ApiProxyModelServices
 {
-    public class ApplicationServices : IApiModelServices<AppProxy>
+    public class ApplicationServices : IApplicationServices
     {
         public List<AppProxy> ApplicationList;
         public IEnumerable<AppProxy> GetProxyObjects()
-        {            
-
+        { 
             using (StreamReader r = new StreamReader(typeof(ApplicationServices).Assembly.GetManifestResourceStream("NCTS.Services.applications.json")))
             {
                 string json = r.ReadToEnd();

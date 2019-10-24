@@ -10,18 +10,16 @@ namespace NCTS.Tests
     public class EmployeeTest
     {
         private EmployeeServices _employeeServices;
-        private EmployeeTranslator _employeeTranslator;
         public EmployeeTest()
         {
             _employeeServices = new EmployeeServices();
-            _employeeTranslator = new EmployeeTranslator();
         }
 
         [Fact]
         public void Testing_Employee_DB_Model_Return_By_Employee_Translator_Services()
         {
             var employeeProxyModel = _employeeServices.GetProxyObjects().ToList();
-            var employeeDbModel = _employeeTranslator.ToModel(employeeProxyModel);
+            var employeeDbModel = EmployeeTranslator.ToModel(employeeProxyModel);
             Assert.IsType<Employee>(employeeDbModel[0]);
         }
     }
