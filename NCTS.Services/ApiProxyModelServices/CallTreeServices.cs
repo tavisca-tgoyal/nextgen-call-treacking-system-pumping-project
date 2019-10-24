@@ -2,6 +2,7 @@
 using NCTS.Contracts.Models.ApiProxyModels;
 using NCTS.Services.TranslatorServices;
 using Newtonsoft.Json;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,8 +53,15 @@ namespace NCTS.Services.ApiProxyModelServices
 
             foreach (var item in results)
             {
-                List<CallTreeProxy> jsonCallProxy = JsonConvert.DeserializeObject<List<CallTreeProxy>>(item);
-                callTreeProxyList.Add(jsonCallProxy[0]);
+                try
+                {
+                    List<CallTreeProxy> jsonCallProxy = JsonConvert.DeserializeObject<List<CallTreeProxy>>(item);
+                    callTreeProxyList.Add(jsonCallProxy[0]);
+                }
+                catch (Exception ex)
+                {
+                    Log.Information(ex.Message.ToString());
+                }
             }
         }
 

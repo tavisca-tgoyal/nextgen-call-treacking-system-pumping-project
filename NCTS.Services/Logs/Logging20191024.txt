@@ -1,0 +1,5 @@
+2019-10-24 12:28:43.469 +05:30 [INF] Employee Data is passed to Database Layer Successfully
+2019-10-24 12:28:55.237 +05:30 [INF] CallTree data is Passed to Database Layer Successfully
+2019-10-24 12:29:02.801 +05:30 [INF] Call data is Passed to Database Layer Successfully
+2019-10-24 12:29:21.722 +05:30 [INF] EmployeeHour data is Passed to Database Layer Successfully
+2019-10-24 12:29:28.657 +05:30 [INF] Application data is Passed to Database Layer Successfully

@@ -12,7 +12,9 @@ namespace NCTS.Services.ApiProxyModelServices
 {
     public class CallDataServices : ICallDataServices
     {
-        public List<CallDataProxy> CallDataList;
+        private List<CallDataProxy> _callDataList;
+        private static int _frequency = 6;
+
         public List<CallDataProxy> GetProxyObjects()
         {
             const string Format = "http://logs.stage.oski.io/_plugin/kibana/elasticsearch/_msearch";
@@ -47,9 +49,9 @@ namespace NCTS.Services.ApiProxyModelServices
 
             valueFromResponse = "[" + valueFromResponse + "]";
 
-            CallDataList = JsonConvert.DeserializeObject<List<CallDataProxy>>(valueFromResponse);
+            _callDataList = JsonConvert.DeserializeObject<List<CallDataProxy>>(valueFromResponse);
 
-            return CallDataList;
+            return _callDataList;
         }
 
         private static string GetJson()
@@ -59,16 +61,22 @@ namespace NCTS.Services.ApiProxyModelServices
             string lte = string.Empty;
 
             int currentHour = Convert.ToInt32(DateTime.Now.Hour);
-            int startHour = ((currentHour / 6) * 6) - 6;
-            int endHour = (currentHour / 6) * 6;
+            int startHour = ((currentHour / _frequency) * _frequency) - _frequency;
+            int endHour = (currentHour / _frequency) * _frequency;
 
-            gte = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, startHour, 0, 0, 1).Subtract(new DateTime(1970, 1, 1)).TotalMilliseconds.ToString();
-            lte = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, endHour, 0, 0, 1).Subtract(new DateTime(1970, 1, 1)).TotalMilliseconds.ToString();
+            gte = GetEpoch(startHour);
+            lte = GetEpoch(endHour);
 
+            //when the api hitted, at that time we'll get the date, startTime and EndTime accordingly
             var ApiRequestBody = @"{""index"":[""logs-" + date + @"""],""ignore_unavailable"":true}";
             ApiRequestBody = ApiRequestBody + Environment.NewLine + @"{""size"":500,""sort"":[{""log_time"":{""order"":""desc"",""unmapped_type"":""boolean""}}],""query"":{""bool"":{""must"":[{""query_string"":{""query"":""app_name: chatops AND category: call_action AND call_action: *"",""analyze_wildcard"":true}},{""range"":{""log_time"":{""gte"":" + gte + @",""lte"":" + lte + @",""format"":""epoch_millis""}}}],""must_not"":[]}},""highlight"":{""pre_tags"":[""@kibana-highlighted-field@""],""post_tags"":[""@/kibana-highlighted-field@""],""fields"":{""*"":{}},""require_field_match"":false,""fragment_size"":2147483647},""_source"":{""excludes"":[]},""aggs"":{""2"":{""date_histogram"":{""field"":""log_time"",""interval"":""3h"",""time_zone"":""Asia/Kolkata"",""min_doc_count"":1}}},""stored_fields"":[""*""],""script_fields"":{},""docvalue_fields"":[""check_in"",""search_date"",""check_out"",""time_stamp"",""pickup_date"",""dropoff_date"",""log_time"",""@timestamp"",""Timestamp"",""start_time"",""lastrun"",""lastsync""]}" + Environment.NewLine;
 
             return ApiRequestBody;
+        }
+
+        private static string GetEpoch(int Hour)
+        {
+            return DateTime.Now.Date.AddHours(Hour).AddMilliseconds(1).Subtract(new DateTime(1970, 1, 1)).TotalMilliseconds.ToString();
         }
     }
 }

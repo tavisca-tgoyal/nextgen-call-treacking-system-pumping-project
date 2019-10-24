@@ -9,7 +9,7 @@ namespace NCTS.Services.TranslatorServices
 
     public static class ApplicationTranslator
     {
-        public static List<Application> ToModel(List<AppProxy> proxyModelList)
+        public static List<Application> ToModel(this List<AppProxy> proxyModelList)
         {
             List<Application> applicationList = new List<Application>();
             foreach (var item in proxyModelList)

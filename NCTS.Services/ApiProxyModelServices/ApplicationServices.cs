@@ -2,6 +2,7 @@
 using NCTS.Contracts.Models.ApiProxyModels;
 using NCTS.Contracts.Models.DBModels;
 using Newtonsoft.Json;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,7 +19,14 @@ namespace NCTS.Services.ApiProxyModelServices
             using (StreamReader r = new StreamReader(typeof(ApplicationServices).Assembly.GetManifestResourceStream("NCTS.Services.applications.json")))
             {
                 string json = r.ReadToEnd();
-                ApplicationList = JsonConvert.DeserializeObject<List<AppProxy>>(json);
+                try
+                {
+                    ApplicationList = JsonConvert.DeserializeObject<List<AppProxy>>(json);
+                }
+                catch (Exception ex)
+                {
+                    Log.Information(ex.Message.ToString());                
+                }
             }
             return ApplicationList;
         }
