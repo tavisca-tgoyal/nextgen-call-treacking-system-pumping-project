@@ -17,7 +17,7 @@ namespace NCTS.Tests
         }
 
         [Fact]
-        public void Testing_Employee_DB_Model_Return_By_Employee_Translator_Services()
+        public void Testing_CallTree_DB_Model_Return_By_CallTree_Translator_Services()
         {
             var callTreeProxyModel = _callTreeServices.GetProxyObjects().ToList();
             var callTreeDbModel = _callDataTranslator.ToModel(callTreeProxyModel);

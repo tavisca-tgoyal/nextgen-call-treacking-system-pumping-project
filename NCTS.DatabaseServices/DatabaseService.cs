@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text;
 using NCTS.Contracts.Models.DBModels;
 using Serilog;
@@ -8,9 +9,19 @@ namespace NCTS.DatabaseServices
 {
     public class DatabaseService : IDatabaseServices
     {
+        private string _connection;
+        public DatabaseService()
+        {
+            _connection = "SERVER=127.0.0.1;PORT=3306;DATABASE=oncalltracking;UID=root;PASSWORD=123456";
+        }
+
         public void InsertApplications(List<Application> applicationList)
         {
-            throw new NotImplementedException();
+            SqlConnection sqlConnection = new SqlConnection(_connection);
+            foreach (var application in applicationList)
+            {
+
+            }
         }
 
         public void InsertCallData(List<CallData> callDataList)

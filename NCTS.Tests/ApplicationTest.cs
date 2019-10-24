@@ -18,7 +18,7 @@ namespace NCTS.Tests
         }
 
         [Fact]
-        public void Testing_Employee_DB_Model_Return_By_Employee_Translator_Services()
+        public void Testing_Application_DB_Model_Return_By_Application_Translator_Services()
         {
             var appplicationProxyModel = _applicationServices.GetProxyObjects().ToList();
             var applicationDbModel = _applicationTranslator.ToModel(appplicationProxyModel);

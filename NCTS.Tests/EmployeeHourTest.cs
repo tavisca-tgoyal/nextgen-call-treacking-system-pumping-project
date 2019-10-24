@@ -17,7 +17,7 @@ namespace NCTS.Tests
         }
 
         [Fact]
-        public void Testing_Employee_DB_Model_Return_By_Employee_Translator_Services()
+        public void Testing_EmployeeHour_DB_Model_Return_By_EmployeeHour_Translator_Services()
         {
             var employeeHourDbModel = _employeeHour.GetEmployeeHours();
             Assert.IsType<EmployeeHours>(employeeHourDbModel[0]);

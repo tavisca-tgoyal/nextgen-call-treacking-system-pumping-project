@@ -20,7 +20,7 @@ namespace NCTS.Tests
         }
 
         [Fact]
-        public void Testing_Employee_DB_Model_Return_By_Employee_Translator_Services()
+        public void Testing_CallData_DB_Model_Return_By_CallData_Translator_Services()
         {
             var callDataProxyModel = _callDataServices.GetProxyObjects().ToList();
             var callDataDbModel = _callDataTranslator.ToModel(callDataProxyModel);
