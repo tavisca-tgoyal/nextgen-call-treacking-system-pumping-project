@@ -1,5 +1,16 @@
+<<<<<<< Updated upstream
 2019-10-24 12:28:43.469 +05:30 [INF] Employee Data is passed to Database Layer Successfully
 2019-10-24 12:28:55.237 +05:30 [INF] CallTree data is Passed to Database Layer Successfully
 2019-10-24 12:29:02.801 +05:30 [INF] Call data is Passed to Database Layer Successfully
 2019-10-24 12:29:21.722 +05:30 [INF] EmployeeHour data is Passed to Database Layer Successfully
 2019-10-24 12:29:28.657 +05:30 [INF] Application data is Passed to Database Layer Successfully
+2019-10-24 11:10:58.518 +05:30 [INF] Application data is Passed to Database Layer Successfully
+2019-10-24 11:16:43.607 +05:30 [INF] Application data is Passed to Database Layer Successfully
+2019-10-24 11:16:43.622 +05:30 [INF] Application data is Passed to Database Layer Successfully
+2019-10-24 11:31:55.669 +05:30 [INF] Application data is Passed to Database Layer Successfully
+2019-10-24 12:51:32.579 +05:30 [INF] Application data is Passed to Database Layer Successfully
+2019-10-24 12:54:48.962 +05:30 [INF] Application data is Passed to Database Layer Successfully
+2019-10-24 12:58:52.164 +05:30 [INF] Application data is Passed to Database Layer Successfully
+2019-10-24 16:51:18.847 +05:30 [INF] Application data is Passed to Database Layer Successfully
+2019-10-24 17:07:26.865 +05:30 [INF] Application data is Passed to Database Layer Successfully
+2019-10-24 17:16:55.429 +05:30 [INF] Application data is Passed to Database Layer Successfully
