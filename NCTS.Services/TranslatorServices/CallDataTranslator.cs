@@ -8,7 +8,7 @@ namespace NCTS.Services.TranslatorServices
 {
     public static class CallDataTranslator 
     {
-        public static List<CallData> ToModel(List<CallDataProxy> proxyModelList)
+        public static List<CallData> ToModel(this List<CallDataProxy> proxyModelList)
         {
             var callData = new List<CallData>();
             foreach (var call in proxyModelList[0].responses[0].hits.hits)
