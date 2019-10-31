@@ -8,7 +8,7 @@ namespace NCTS.Services.TranslatorServices
 {
     public static class EmployeeTranslator 
     {
-        public static List<Employee> ToModel(List<EmployeeProxy> proxyModelList)
+        public static List<Employee> ToModel(this List<EmployeeProxy> proxyModelList)
         {
             List<Employee> employeeList = new List<Employee>();
             foreach (var employee in proxyModelList)
