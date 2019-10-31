@@ -16,6 +16,9 @@
   <ItemGroup>
     <ProjectReference Include="..\NCTS.DatabaseServices\NCTS.DatabaseMiddleWare.csproj" />
     <ProjectReference Include="..\NCTS.Services\NCTS.Services.csproj" />
+    <ProjectReference Include="..\Submodules\platform-common\Tavisca.Common.Plugins.Aws\Tavisca.Common.Plugins.Aws.Core.csproj" />
+    <ProjectReference Include="..\Submodules\platform-common\Tavisca.Common.Plugins.StructureMap\Tavisca.Common.Plugins.StructureMap.Core.csproj" />
+    <ProjectReference Include="..\Submodules\platform-common\Tavisca.Platform.Common\Tavisca.Platform.Common.Core.csproj" />
   </ItemGroup>
 
 </Project>

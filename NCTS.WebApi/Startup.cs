@@ -10,10 +10,16 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.Practices.ServiceLocation;
 using NCTS.Contracts.Interfaces.ApiProxyModel;
 using NCTS.DatabaseServices;
 using NCTS.Services.ApiProxyModelServices;
+using Newtonsoft.Json;
 using Serilog;
+using Tavisca.Common.Plugins.StructureMap;
+using Tavisca.Platform.Common.Configurations;
+using Tavisca.Platform.Common.Containers;
+using Tavisca.Platform.Common.Core.ServiceLocator;
 
 namespace NCTS.WebApi
 {
@@ -29,6 +35,17 @@ namespace NCTS.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+            });
+
+            services.AddSingleton<IConfiguration>(Configuration);
+            var serviceLocator = new NetCoreServiceLocator(new ContainerFactory(services), GetModules());
+            ServiceLocator.SetLocatorProvider(() => serviceLocator);
+
+            var configurationProvider = ServiceLocator.Current.GetInstance<Tavisca.Platform.Common.Configurations.IConfigurationProvider>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSingleton<IDatabaseServices, DatabaseService>();
             services.AddSingleton<IEmployeeServices, EmployeeServices>();
@@ -65,6 +82,13 @@ namespace NCTS.WebApi
                 .WriteTo.File(@"..\NCTS.Services\Logs\Logging.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
            
+        }
+
+        private IModule[] GetModules()
+        {
+            return new IModule[]{
+                new Module()
+            };
         }
     }
 }
