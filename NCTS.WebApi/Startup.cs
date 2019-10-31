@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using NCTS.Contracts.Interfaces.ApiProxyModel;
-using NCTS.DatabaseServices;
-using NCTS.Services.ApiProxyModelServices;
+using NCTS.DatabaseMiddleLayer;
+using NCTS.MiddleLayer.Utility;
+using NCTS.Proxy.Interfaces;
+using NCTS.Proxy.ProxyServices;
 using Serilog;
 
 namespace NCTS.WebApi
@@ -30,16 +24,17 @@ namespace NCTS.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddSingleton<IDatabaseServices, DatabaseService>();
-            services.AddSingleton<IEmployeeServices, EmployeeServices>();
-            services.AddSingleton<IApplicationServices, ApplicationServices>();
-            services.AddSingleton<ICallDataServices, CallDataServices>();
-            services.AddSingleton<ICallTreeServices, CallTreeServices>();
+            services.AddSingleton<IDatabaseService, DatabaseService>();
+            services.AddSingleton<IEmployeProxyService, EmployeeProxyService>();
+            services.AddSingleton<IApplicationProxyService, ApplicationProxyService>();
+            services.AddSingleton<ICallDataProxyService, CallDataProxyService>();
+            services.AddSingleton<ICallTreeProxyService, CallTreeProxyService>();
+            services.AddSingleton<IEmployeeHour, EmployeeHour>();
 
 
             StartLogger();
 
-        }        
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -61,10 +56,9 @@ namespace NCTS.WebApi
         private void StartLogger()
         {
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Verbose()
-                .WriteTo.File(@"..\NCTS.Services\Logs\Logging.txt", rollingInterval: RollingInterval.Day)
-                .CreateLogger();
-           
+            .MinimumLevel.Verbose()
+            .WriteTo.File("../Logs/log-.txt", rollingInterval: RollingInterval.Day)
+            .CreateLogger();
         }
     }
 }

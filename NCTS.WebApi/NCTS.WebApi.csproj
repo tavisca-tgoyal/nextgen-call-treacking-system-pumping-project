@@ -11,11 +11,13 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="Serilog" Version="2.9.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
+    <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NCTS.DatabaseServices\NCTS.DatabaseMiddleWare.csproj" />
-    <ProjectReference Include="..\NCTS.Services\NCTS.Services.csproj" />
+    <ProjectReference Include="..\NCTS.DatabaseMiddleLayer\NCTS.DatabaseMiddleLayer.csproj" />
+    <ProjectReference Include="..\NCTS.Proxy\NCTS.Proxy.csproj" />
   </ItemGroup>
 
 </Project>

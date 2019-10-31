@@ -1,8 +1,6 @@
-using NCTS.Contracts.Models.DBModels;
-using NCTS.Services.ApiProxyModelServices;
-using NCTS.Services.TranslatorServices;
-using System;
-using System.Linq;
+using NCTS.MiddleLayer.Model;
+using NCTS.MiddleLayer.Translator;
+using NCTS.Proxy.ProxyServices;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -10,10 +8,10 @@ namespace NCTS.Tests
 {
     public class EmployeeTest
     {
-        private EmployeeServices _employeeServices;
+        private EmployeeProxyService _employeeServices;
         public EmployeeTest()
         {
-            _employeeServices = new EmployeeServices();
+            _employeeServices = new EmployeeProxyService();
         }
 
         [Fact]

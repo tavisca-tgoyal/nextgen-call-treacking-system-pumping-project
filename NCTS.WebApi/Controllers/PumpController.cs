@@ -1,45 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using NCTS.Contracts;
-using NCTS.Contracts.Interfaces.ApiProxyModel;
-using NCTS.Contracts.Models.ApiProxyModels;
-using NCTS.Contracts.Models.DBModels;
-using NCTS.DatabaseServices;
-using NCTS.Services.ApiProxyModelServices;
-using NCTS.Services.TranslatorServices;
-using NCTS.Services.Utility;
+﻿using Microsoft.AspNetCore.Mvc;
+using NCTS.DatabaseMiddleLayer;
+using NCTS.MiddleLayer.Utility;
+using NCTS.Proxy.Interfaces;
 using Serilog;
 
 namespace NCTS.WebApi.Controllers
 {
-    
+
     [ApiController]
     public class PumpController : ControllerBase
     {
-        private IDatabaseServices _databaseServices;
-        private IEmployeeServices _employeeServices;
-        private IApplicationServices _applicationServices;
-        private ICallDataServices _callDataServices;
-        private ICallTreeServices _callTreeServices;
+        private IDatabaseService _databaseServices;
+        private IEmployeProxyService _employeeServices;
+        private IApplicationProxyService _applicationServices;
+        private ICallDataProxyService _callDataServices;
+        private ICallTreeProxyService _callTreeServices;
+        private IEmployeeHour _employeeHour;
 
-        public PumpController(IDatabaseServices DatabaseService, IEmployeeServices EmployeeServices, IApplicationServices ApplicationServices, ICallDataServices CallDataServices, ICallTreeServices CallTreeServices)
+        public PumpController(IDatabaseService databaseService, IEmployeProxyService employeeServices, IApplicationProxyService applicationServices, ICallDataProxyService callDataServices, ICallTreeProxyService callTreeServices,IEmployeeHour employeeHour)
         {
-            _databaseServices = DatabaseService;
-            _employeeServices = EmployeeServices;
-            _applicationServices = ApplicationServices;
-            _callDataServices = CallDataServices;
-            _callTreeServices = CallTreeServices;
+            _databaseServices = databaseService;
+            _employeeServices = employeeServices;
+            _applicationServices = applicationServices;
+            _callDataServices = callDataServices;
+            _callTreeServices = callTreeServices;
+            _employeeHour = employeeHour;
         }
 
         [Route("api/pump/employee")]
-        public async Task PumpEmployees()
+        public void PumpEmployees()
         {
-            List<EmployeeProxy> employeeProxies = await _employeeServices.GetProxyObjects();
-            _databaseServices.InsertEmployees(employeeProxies.ToModel());
+            _databaseServices.InsertEmployees(_employeeServices);
 
             Log.Information("Employee Data is passed to Database Layer Successfully");
         }
@@ -47,8 +38,7 @@ namespace NCTS.WebApi.Controllers
         [Route("api/pump/Application")]
         public void PumpApplication()
         {
-            List<AppProxy> appProxies = _applicationServices.GetProxyObjects();
-            _databaseServices.InsertApplications(appProxies.ToModel());
+            _databaseServices.InsertApplications(_applicationServices);
 
             Log.Information("Application data is Passed to Database Layer Successfully");
         }
@@ -56,26 +46,23 @@ namespace NCTS.WebApi.Controllers
         [Route("api/pump/CallData")]
         public void PumpCallData()
         {
-            List<CallDataProxy> callDataProxies = _callDataServices.GetProxyObjects();
-            _databaseServices.InsertCallData(callDataProxies.ToModel());
+            _databaseServices.InsertCallData(_callDataServices);
 
             Log.Information("Call data is Passed to Database Layer Successfully");
         }
 
         [Route("api/pump/CallTree")]
-        public async Task PumpCallTree()
+        public void  PumpCallTree()
         {
-            List<CallTreeProxy> callTreeProxies = await _callTreeServices.GetProxyObjects();
-            _databaseServices.InsertCallTrees(callTreeProxies.ToModel());
+            _databaseServices.InsertCallTrees(_callTreeServices);
 
             Log.Information("CallTree data is Passed to Database Layer Successfully");
         }
 
         [Route("api/pump/EmployeeHours")]
-        public async Task PumpEmployeeHours()
+        public void PumpEmployeeHours()
         {
-            EmployeeHour employeeHourList = new EmployeeHour();
-            _databaseServices.InsertEmployeeHours(await employeeHourList.GetEmployeeHours());
+            _databaseServices.InsertEmployeeHours(_employeeHour);
 
             Log.Information("EmployeeHour data is Passed to Database Layer Successfully");
         }

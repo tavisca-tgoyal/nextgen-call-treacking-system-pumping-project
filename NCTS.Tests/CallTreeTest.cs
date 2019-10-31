@@ -1,17 +1,16 @@
-using NCTS.Contracts.Models.DBModels;
-using NCTS.Services.ApiProxyModelServices;
-using NCTS.Services.TranslatorServices;
-using System.Linq;
+using NCTS.MiddleLayer.Model;
+using NCTS.MiddleLayer.Translator;
+using NCTS.Proxy.ProxyServices;
 using Xunit;
 
 namespace NCTS.Tests
 {
     public class CallTreeTest
     {
-        private CallTreeServices _callTreeServices;
+        private CallTreeProxyService _callTreeServices;
         public CallTreeTest()
         {
-            _callTreeServices = new CallTreeServices();
+            _callTreeServices = new CallTreeProxyService();
         }
 
         [Fact]

@@ -1,9 +1,5 @@
-﻿using NCTS.Contracts.Models.DBModels;
-using NCTS.Services.ApiProxyModelServices;
-using NCTS.Services.TranslatorServices;
-using NCTS.Services.Utility;
-using System;
-using System.Linq;
+﻿using NCTS.MiddleLayer.Model;
+using NCTS.MiddleLayer.Utility;
 using System.Threading.Tasks;
 using Xunit;
 
