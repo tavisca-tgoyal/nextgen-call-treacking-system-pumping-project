@@ -1,0 +1,48 @@
+2019-11-04 09:53:27.268 +05:30 [INF] Application data is Passed to Database Layer Successfully
+2019-11-04 09:54:11.109 +05:30 [INF] Employee Data is passed to Database Layer Successfully
+2019-11-04 09:54:49.185 +05:30 [INF] CallTree data is Passed to Database Layer Successfully
+2019-11-04 10:01:26.021 +05:30 [INF] CallTree data is Passed to Database Layer Successfully
+2019-11-04 10:06:05.815 +05:30 [INF] CallTree data is Passed to Database Layer Successfully
+2019-11-04 10:25:12.747 +05:30 [INF] CallTree data is Passed to Database Layer Successfully
+2019-11-04 10:31:33.056 +05:30 [INF] CallTree data is Passed to Database Layer Successfully
+2019-11-04 10:31:35.725 +05:30 [INF] Cannot add or update a child row: a foreign key constraint fails (`octs`.`calltree`, CONSTRAINT `Level_1` FOREIGN KEY (`Level1Employee`) REFERENCES `employee` (`Id`) ON UPDATE CASCADE)
+2019-11-04 10:31:35.819 +05:30 [INF] Cannot add or update a child row: a foreign key constraint fails (`octs`.`calltree`, CONSTRAINT `Level_1` FOREIGN KEY (`Level1Employee`) REFERENCES `employee` (`Id`) ON UPDATE CASCADE)
+2019-11-04 10:31:35.971 +05:30 [INF] Cannot add or update a child row: a foreign key constraint fails (`octs`.`calltree`, CONSTRAINT `Level_3` FOREIGN KEY (`Level3Employee`) REFERENCES `employee` (`Id`))
+2019-11-04 10:32:24.147 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 10:32:24.261 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 10:32:24.553 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 10:32:24.740 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 10:32:24.878 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 10:32:24.987 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 12:08:37.262 +05:30 [INF] Call data is Passed to Database Layer Successfully
+2019-11-04 12:12:47.699 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 12:13:15.991 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 12:13:16.161 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 12:13:16.327 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 12:13:16.443 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 12:13:16.614 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 12:13:16.761 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 12:13:16.883 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 12:13:16.981 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 12:13:17.107 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 12:13:17.208 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 12:13:17.333 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 12:13:17.414 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 12:13:17.541 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 12:52:32.996 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 12:52:40.120 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 12:52:42.519 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 12:52:43.907 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 12:52:45.092 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 12:52:46.416 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 12:52:48.801 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-04 12:52:51.498 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 12:52:52.746 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 12:52:54.389 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 12:53:06.489 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 12:53:07.859 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 12:53:09.084 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 12:53:10.076 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-04 12:53:10.247 +05:30 [INF] Call data is Passed to Database Layer Successfully
+2019-11-04 12:55:30.613 +05:30 [INF] Call data is Passed to Database Layer Successfully
+2019-11-04 14:00:32.848 +05:30 [INF] Call data is Passed to Database Layer Successfully
