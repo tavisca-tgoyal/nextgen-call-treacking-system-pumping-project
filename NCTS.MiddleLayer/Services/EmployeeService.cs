@@ -3,6 +3,7 @@ using NCTS.MiddleLayer.Interfaces;
 using NCTS.MiddleLayer.Translator;
 using NCTS.Proxy.Interfaces;
 using NCTS.Proxy.ProxyServices;
+using Serilog;
 using System.Threading.Tasks;
 
 namespace NCTS.MiddleLayer.Services
@@ -21,6 +22,8 @@ namespace NCTS.MiddleLayer.Services
         {
             var employeeList =  await _employeeProxyService.GetProxyObjects();
             _databaseService.InsertEmployees(employeeList.ToModel());
+
+            Log.Information("Employee Data is successfully passed to the DBLayer");
         }
     }
 }

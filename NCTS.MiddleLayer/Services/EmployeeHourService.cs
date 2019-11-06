@@ -1,6 +1,7 @@
 ﻿using NCTS.DatabaseMiddleLayer;
 using NCTS.MiddleLayer.Interfaces;
 using NCTS.MiddleLayer.Utility;
+using Serilog;
 using System.Threading.Tasks;
 
 namespace NCTS.MiddleLayer.Services
@@ -19,6 +20,8 @@ namespace NCTS.MiddleLayer.Services
         {
             var employeeHourList = await _employeeHour.GetEmployeeHours();
             _databaseService.InsertEmployeeHours(employeeHourList);
+
+            Log.Information("EmployeeHour Data is successfully passed to the DBLayer");
         }
     }
 }

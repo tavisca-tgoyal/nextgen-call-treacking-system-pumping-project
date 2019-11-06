@@ -29,37 +29,35 @@ namespace NCTS.WebApi.Controllers
         public void PumpEmployees()
         {
             _employeeService.Pump();
-            Log.Information("Employee Data is passed to Database Layer Successfully");
+            Log.Information("Pumping of Employee is executed");
         }
 
         [Route("api/pump/Application")]
         public void PumpApplication()
         {
             _applicationService.Pump();
-            Log.Information("Application data is Passed to Database Layer Successfully");
+            Log.Information("Pumping of Application is executed");
         }
 
         [Route("api/pump/CallData")]
         public void PumpCallData()
         {
             _callDataService.Pump();
-
-            Log.Information("Call data is Passed to Database Layer Successfully");
+            Log.Information("Pumping of CallData is executed");
         }
 
         [Route("api/pump/CallTree")]
         public void  PumpCallTree()
         {
             _callTreeService.Pump();
-
-            Log.Information("CallTree data is Passed to Database Layer Successfully");
+            Log.Information("Pumping of CallTree is executed");
         }
 
         [Route("api/pump/EmployeeHours")]
         public void PumpEmployeeHours()
         {
             _employeeHourService.Pump();
-            Log.Information("EmployeeHour data is Passed to Database Layer Successfully");
+            Log.Information("Pumping of EmployeeHours is executed");
         }
     }
 }

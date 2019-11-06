@@ -25,6 +25,8 @@ namespace NCTS.MiddleLayer.Services
             var callTreeProxies = await _callTreeProxyService.GetProxyObjects();
             var callTreeList = callTreeProxies.ToModel();
             _dataService.InsertCallTrees(callTreeList);
+
+            Log.Information("CallTree Data is successfully passed to the DBLayer");
         }
     }
 }
