@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NCTS.Proxy.Interfaces
 {
-    public interface IEmployeProxyService
+    public interface IEmployeeProxyService
     {
         Task<List<EmployeeProxy>> GetProxyObjects();
     }

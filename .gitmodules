@@ -1,0 +1,3 @@
+[submodule "Submodules/platform-common"]
+	path = Submodules/platform-common
+	url = git@github.com:TaviscaSolutions/platform-common.git

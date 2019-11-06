@@ -1,18 +1,14 @@
-﻿using NCTS.MiddleLayer.Model;
-using NCTS.MiddleLayer.Utility;
-using NCTS.Proxy.Interfaces;
-using System;
+﻿using NCTS.DatabaseMiddleLayer.Model;
 using System.Collections.Generic;
-using System.Text;
 
 namespace NCTS.DatabaseMiddleLayer
 {
     public interface IDatabaseService
     {
-        void InsertEmployees(IEmployeProxyService employeProxyService);
-        void InsertApplications(IApplicationProxyService applicationProxyService);
-        void InsertCallData(ICallDataProxyService callDataProxyService);
-        void InsertEmployeeHours(IEmployeeHour employeeHour);
-        void InsertCallTrees(ICallTreeProxyService callTreeProxyService);
+        void InsertEmployees(List<Employee> employeeList);
+        void InsertApplications(List<Application> applicationsList);
+        void InsertCallData(List<CallData> callDataList);
+        void InsertEmployeeHours(List<EmployeeHours> employeeHourList);
+        void InsertCallTrees(List<CallTree> callTreeList);
     }
 }

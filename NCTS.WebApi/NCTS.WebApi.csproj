@@ -16,8 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NCTS.DatabaseMiddleLayer\NCTS.DatabaseMiddleLayer.csproj" />
-    <ProjectReference Include="..\NCTS.Proxy\NCTS.Proxy.csproj" />
+    <ProjectReference Include="..\NCTS.MiddleLayer\NCTS.MiddleLayer.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-using NCTS.MiddleLayer.Model;
+using NCTS.DatabaseMiddleLayer.Model;
 using NCTS.MiddleLayer.Translator;
 using NCTS.Proxy.ProxyServices;
 using Xunit;

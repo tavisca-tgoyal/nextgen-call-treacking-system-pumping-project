@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace NCTS.Proxy.ProxyServices
 {
-    public class EmployeeProxyService : IEmployeProxyService
+    public class EmployeeProxyService : IEmployeeProxyService
     {
         private List<EmployeeProxy> _employeeList;
         public async Task<List<EmployeeProxy>> GetProxyObjects()

@@ -1,0 +1,44 @@
+2019-11-06 09:50:20.398 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-06 09:50:20.869 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:21.009 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-06 09:50:21.121 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:21.289 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:21.698 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-06 09:50:21.837 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:22.101 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:22.269 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:22.729 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:23.069 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:23.419 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:23.541 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:23.738 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-06 09:50:24.065 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:24.214 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:24.752 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:25.009 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:25.265 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-06 09:50:25.466 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:25.626 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-06 09:50:25.851 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:26.103 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 09:50:26.605 +05:30 [INF] Call data is Passed to Database Layer Successfully
+2019-11-06 09:54:24.376 +05:30 [INF] Call data is Passed to Database Layer Successfully
+2019-11-06 09:56:36.630 +05:30 [INF] Employee Data is passed to Database Layer Successfully
+2019-11-06 09:56:38.519 +05:30 [INF] Duplicate entry '1' for key 'PRIMARY'
+2019-11-06 09:56:38.563 +05:30 [INF] Duplicate entry '2' for key 'PRIMARY'
+2019-11-06 09:56:38.613 +05:30 [INF] Duplicate entry '3' for key 'PRIMARY'
+2019-11-06 09:56:38.655 +05:30 [INF] Duplicate entry '4' for key 'PRIMARY'
+2019-11-06 09:56:38.706 +05:30 [INF] Duplicate entry '7' for key 'PRIMARY'
+2019-11-06 09:56:38.747 +05:30 [INF] Duplicate entry '8' for key 'PRIMARY'
+2019-11-06 09:56:38.796 +05:30 [INF] Duplicate entry '9' for key 'PRIMARY'
+2019-11-06 09:56:38.843 +05:30 [INF] Duplicate entry '11' for key 'PRIMARY'
+2019-11-06 09:56:38.959 +05:30 [INF] Duplicate entry '12' for key 'PRIMARY'
+2019-11-06 09:56:39.091 +05:30 [INF] Duplicate entry '13' for key 'PRIMARY'
+2019-11-06 09:56:39.149 +05:30 [INF] Duplicate entry '14' for key 'PRIMARY'
+2019-11-06 09:56:39.202 +05:30 [INF] Duplicate entry '16' for key 'PRIMARY'
+2019-11-06 09:56:39.300 +05:30 [INF] Duplicate entry '17' for key 'PRIMARY'
+2019-11-06 09:56:39.372 +05:30 [INF] Duplicate entry '19' for key 'PRIMARY'
+2019-11-06 09:56:39.427 +05:30 [INF] Duplicate entry '20' for key 'PRIMARY'
+2019-11-06 09:56:39.491 +05:30 [INF] Duplicate entry '21' for key 'PRIMARY'
+2019-11-06 09:56:39.544 +05:30 [INF] Duplicate entry '22' for key 'PRIMARY'
+2019-11-06 09:56:39.586 +05:30 [INF] Duplicate entry '24' for key 'PRIMARY'

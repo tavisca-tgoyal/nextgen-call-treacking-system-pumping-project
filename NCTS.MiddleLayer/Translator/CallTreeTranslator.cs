@@ -1,8 +1,6 @@
-﻿using NCTS.MiddleLayer.Model;
+﻿using NCTS.DatabaseMiddleLayer.Model;
 using NCTS.Proxy.ProxyClasses;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace NCTS.MiddleLayer.Translator
 {

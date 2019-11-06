@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NCTS.DatabaseMiddleLayer;
+using NCTS.MiddleLayer.Interfaces;
+using NCTS.MiddleLayer.Services;
 using NCTS.MiddleLayer.Utility;
 using NCTS.Proxy.Interfaces;
 using NCTS.Proxy.ProxyServices;
@@ -24,13 +26,20 @@ namespace NCTS.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSingleton<ICallDataService, CallDataService>();
+            services.AddSingleton<ICallTreeService, CallTreeService>();
+            services.AddSingleton<IApplicationService, ApplicationService>();
+            services.AddSingleton<IEmployeeService, EmployeeService>();
+            services.AddSingleton<IEmployeeHourService, EmployeeHourService>();
+
             services.AddSingleton<IDatabaseService, DatabaseService>();
-            services.AddSingleton<IEmployeProxyService, EmployeeProxyService>();
+
             services.AddSingleton<IApplicationProxyService, ApplicationProxyService>();
             services.AddSingleton<ICallDataProxyService, CallDataProxyService>();
             services.AddSingleton<ICallTreeProxyService, CallTreeProxyService>();
+            services.AddSingleton<IEmployeeProxyService, EmployeeProxyService>();
             services.AddSingleton<IEmployeeHour, EmployeeHour>();
-
 
             StartLogger();
 

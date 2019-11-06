@@ -1,4 +1,4 @@
-using NCTS.MiddleLayer.Model;
+using NCTS.DatabaseMiddleLayer.Model;
 using NCTS.MiddleLayer.Translator;
 using NCTS.Proxy.ProxyServices;
 using System.Threading.Tasks;
@@ -8,10 +8,10 @@ namespace NCTS.Tests
 {
     public class EmployeeTest
     {
-        private EmployeeProxyService _employeeServices;
+        private IEmployeeProxyService _employeeServices;
         public EmployeeTest()
         {
-            _employeeServices = new EmployeeProxyService();
+            _employeeServices = new IEmployeeProxyService();
         }
 
         [Fact]

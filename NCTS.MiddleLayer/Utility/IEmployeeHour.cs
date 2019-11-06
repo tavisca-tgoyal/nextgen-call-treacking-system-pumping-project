@@ -1,7 +1,5 @@
-﻿using NCTS.MiddleLayer.Model;
-using System;
+﻿using NCTS.DatabaseMiddleLayer.Model;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace NCTS.MiddleLayer.Utility

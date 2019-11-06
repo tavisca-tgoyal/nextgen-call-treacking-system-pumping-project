@@ -1,10 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Linq;
-using NCTS.MiddleLayer.Utility;
-using NCTS.Proxy.Interfaces;
-using NCTS.MiddleLayer.Translator;
 using System;
 using Serilog;
+using System.Collections.Generic;
+using NCTS.DatabaseMiddleLayer.Model;
 
 namespace NCTS.DatabaseMiddleLayer
 {
@@ -19,9 +18,9 @@ namespace NCTS.DatabaseMiddleLayer
             _sqlConnection.Open();
         }
 
-        public void InsertApplications(IApplicationProxyService applicationProxyService)
+        public void InsertApplications(List<Application> applicationList)
         {
-            var applicationList = applicationProxyService.GetProxyObjects().ToList().ToModel();
+            //var applicationList = applicationProxyService.GetProxyObjects().ToList().ToModel();
             foreach (var application in applicationList)
             {
                 var sqlString = "call octs.insert_application('" + application.ApplicationName + "');";
@@ -37,9 +36,8 @@ namespace NCTS.DatabaseMiddleLayer
             }
         }
 
-        public void InsertCallData(ICallDataProxyService callDataProxyService)
+        public void InsertCallData(List<CallData> callDataList)
         {
-            var callDataList = callDataProxyService.GetProxyObjects().ToList().ToModel();
             foreach (var callData in callDataList)
             {
                 var sqlString = "call octs.insert_call_data('"  + callData.CallAction + "','" 
@@ -109,10 +107,9 @@ namespace NCTS.DatabaseMiddleLayer
             }
         }
 
-        public async void InsertCallTrees(ICallTreeProxyService callTreeProxyService)
+        public void InsertCallTrees(List<CallTree> callTreeList)
         {
-            var callTreeProxies = await callTreeProxyService.GetProxyObjects();
-            var callTreeList = callTreeProxies.ToModel();
+            
 
             foreach (var callTree in callTreeList)
             {
@@ -194,9 +191,9 @@ namespace NCTS.DatabaseMiddleLayer
             }
         }
 
-        public async void InsertEmployeeHours(IEmployeeHour employeeHour)
+        public void InsertEmployeeHours(List<EmployeeHours> employeeHourList)
         {
-            var employeeHourList = await employeeHour.GetEmployeeHours();
+            //var employeeHourList = await employeeHour.GetEmployeeHours();
             foreach (var empHour in employeeHourList)
             {
 
@@ -217,10 +214,10 @@ namespace NCTS.DatabaseMiddleLayer
             }
         }
 
-        public async void InsertEmployees(IEmployeProxyService employeProxyService)
+        public void InsertEmployees(List<Employee> employeeList)
         {
-            var employeeProxyList = await employeProxyService.GetProxyObjects();
-            var employeeList = employeeProxyList.ToModel();
+            //var employeeProxyList = await employeProxyService.GetProxyObjects();
+            //var employeeList = employeeProxyList.ToModel();
             foreach (var employee in employeeList)
             {
                 var sqlString = "call octs.insert_employee('"   + employee.Id + "','" 
