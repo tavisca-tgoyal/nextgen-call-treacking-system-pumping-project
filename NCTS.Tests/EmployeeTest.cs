@@ -1,17 +1,24 @@
+using Moq;
 using NCTS.DatabaseMiddleLayer.Model;
 using NCTS.MiddleLayer.Translator;
+using NCTS.Proxy.Interfaces;
 using NCTS.Proxy.ProxyServices;
 using System.Threading.Tasks;
+using Tavisca.Common.Plugins.Configuration;
+using Tavisca.Platform.Common.Configurations;
 using Xunit;
 
 namespace NCTS.Tests
 {
     public class EmployeeTest
     {
-        private IEmployeeProxyService _employeeServices;
+        private EmployeeProxyService _employeeServices;
+        //private readonly Mock<IConfigurationProvider> _configurationProvider = new Mock<IConfigurationProvider>();
+        private readonly IConfigurationProvider _configurationProvider = new ConfigurationProvider("call_tracking_system");
+
         public EmployeeTest()
         {
-            _employeeServices = new IEmployeeProxyService();
+            _employeeServices = new EmployeeProxyService(_configurationProvider);
         }
 
         [Fact]

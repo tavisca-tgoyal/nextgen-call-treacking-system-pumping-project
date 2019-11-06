@@ -1,10 +1,11 @@
-﻿using NCTS.Contracts.Interfaces.ApiProxyModel;
-using NCTS.DatabaseServices;
-using NCTS.Services.ApiProxyModelServices;
+﻿using NCTS.DatabaseMiddleLayer;
+using NCTS.MiddleLayer.Interfaces;
+using NCTS.MiddleLayer.Services;
+using NCTS.MiddleLayer.Utility;
+using NCTS.Proxy.Interfaces;
+using NCTS.Proxy.ProxyServices;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Tavisca.Common.Plugins.Aws;
 using Tavisca.Common.Plugins.Configuration;
 using Tavisca.Platform.Common.Configurations;
@@ -28,11 +29,17 @@ namespace NCTS.WebApi
             yield return Registration.AsSingleton<ISensitiveDataProvider>(() => sensitiveDataProvider, KeyStore.Configuration.SensitiveDataProvider);
             Func<IConfigurationProvider> configurationProvider = () => new ConfigurationProvider(KeyStore.ApplicationName);
             yield return Registration.AsSingleton<IConfigurationProvider>(() => configurationProvider.Invoke());
-            yield return Registration.AsSingleton<IDatabaseServices, DatabaseService>();
-            yield return Registration.AsSingleton<IEmployeeServices, EmployeeServices>();
-            yield return Registration.AsSingleton<IApplicationServices, ApplicationServices>();
-            yield return Registration.AsSingleton<ICallDataServices, CallDataServices>();
-            yield return Registration.AsSingleton<ICallTreeServices, CallTreeServices>();
+            yield return Registration.AsSingleton<IDatabaseService, DatabaseService>();
+            yield return Registration.AsSingleton<IEmployeeService, EmployeeService>();
+            yield return Registration.AsSingleton<IApplicationService, ApplicationService>();
+            yield return Registration.AsSingleton<ICallDataService, CallDataService>();
+            yield return Registration.AsSingleton<ICallTreeService, CallTreeService>();
+            yield return Registration.AsSingleton<IEmployeeHourService, EmployeeHourService>();
+            yield return Registration.AsSingleton<IApplicationProxyService, ApplicationProxyService>();
+            yield return Registration.AsSingleton<ICallDataProxyService, CallDataProxyService>();
+            yield return Registration.AsSingleton<ICallTreeProxyService, CallTreeProxyService>();
+            yield return Registration.AsSingleton<IEmployeeProxyService, EmployeeProxyService>();
+            yield return Registration.AsSingleton<IEmployeeHour, EmployeeHour>();
         }
     }
 }

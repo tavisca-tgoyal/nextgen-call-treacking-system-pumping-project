@@ -6,20 +6,30 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Threading.Tasks;
+using Tavisca.Platform.Common.Configurations;
 
 namespace NCTS.Proxy.ProxyServices
 {
     public class CallDataProxyService : ICallDataProxyService
     {
+        private readonly IConfigurationProvider _configurationProvider;
+        public CallDataProxyService(IConfigurationProvider configurationProvider)
+        {
+            _configurationProvider = configurationProvider;
+        }
+
+      
 
         private List<CallDataProxy> _callDataList;
         private static int _frequency = 6;
 
-        public List<CallDataProxy> GetProxyObjects()
+        public async Task<List<CallDataProxy>> GetProxyObjects()
         {
-            const string Format = "http://logs.stage.oski.io/_plugin/kibana/elasticsearch/_msearch";
+            var apiUrl = await _configurationProvider.GetGlobalConfigurationAsStringAsync("raw_data_url", "call_data_api");
 
-            var myHttpWebRequest = (HttpWebRequest)WebRequest.Create(string.Format(Format));
+
+            var myHttpWebRequest = (HttpWebRequest)WebRequest.Create(string.Format(apiUrl));
 
             // Set the 'Method' property of the 'Webrequest' to 'POST'.
             myHttpWebRequest.Method = "POST";

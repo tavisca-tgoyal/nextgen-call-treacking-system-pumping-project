@@ -3,6 +3,7 @@ using NCTS.MiddleLayer.Interfaces;
 using NCTS.MiddleLayer.Translator;
 using NCTS.Proxy.Interfaces;
 using NCTS.Proxy.ProxyServices;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Text;

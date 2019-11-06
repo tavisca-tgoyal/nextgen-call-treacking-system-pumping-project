@@ -7,13 +7,31 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCTS.WebApi", "NCTS.WebApi\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCTS.Tests", "NCTS.Tests\NCTS.Tests.csproj", "{B2F0D7E2-14D6-4910-AE9E-5EE1CC915431}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCTS.Proxy", "NCTS.Proxy\NCTS.Proxy.csproj", "{0891F6E5-8034-461F-87E8-0C220279B494}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCTS.Proxy", "NCTS.Proxy\NCTS.Proxy.csproj", "{0891F6E5-8034-461F-87E8-0C220279B494}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCTS.MiddleLayer", "NCTS.MiddleLayer\NCTS.MiddleLayer.csproj", "{347995B6-9BBA-4798-84A2-0643CE548A1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCTS.MiddleLayer", "NCTS.MiddleLayer\NCTS.MiddleLayer.csproj", "{347995B6-9BBA-4798-84A2-0643CE548A1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCTS.DatabaseMiddleLayer", "NCTS.DatabaseMiddleLayer\NCTS.DatabaseMiddleLayer.csproj", "{2D072C2C-355F-4A4A-9C7A-4A1D7E107097}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCTS.DatabaseMiddleLayer", "NCTS.DatabaseMiddleLayer\NCTS.DatabaseMiddleLayer.csproj", "{2D072C2C-355F-4A4A-9C7A-4A1D7E107097}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logs", "Logs", "{FCB3CB29-9E8B-4674-A812-85B59334F8E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Submodules", "Submodules", "{A89D538C-9E9E-4F8A-8457-C9E944C07BAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{3C3D1188-55AB-46DF-9B20-31EAC8833A90}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tavisca.Platform.Common.Core", "Submodules\platform-common\Tavisca.Platform.Common\Tavisca.Platform.Common.Core.csproj", "{9B72E19A-12FE-42DD-A7C3-ED9526506664}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tavisca.Platform.Common.Models.Core", "Submodules\platform-common\Tavisca.Platform.Common.Models\Tavisca.Platform.Common.Models.Core.csproj", "{D270150D-A814-440E-A2F2-F557C3B536E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tavisca.Common.Plugins.Configuration.Core", "Submodules\platform-common\Tavisca.Common.Plugins.Configuration\Tavisca.Common.Plugins.Configuration.Core.csproj", "{11BA85CB-A81B-4C0A-86E3-6EC7A5D4904A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tavisca.Common.Plugins.Aws.Core", "Submodules\platform-common\Tavisca.Common.Plugins.Aws\Tavisca.Common.Plugins.Aws.Core.csproj", "{9707DA54-D373-4DC5-8338-DED47CEAF954}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tavisca.Platform.Common.Plugins.Json.Core", "Submodules\platform-common\Tavisca.Platform.Common.Plugins.Json\Tavisca.Platform.Common.Plugins.Json.Core.csproj", "{0D9E71C4-3DAC-4243-A3D9-8ADA1F226791}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tavisca.Common.Plugins.StructureMap.Core", "Submodules\platform-common\Tavisca.Common.Plugins.StructureMap\Tavisca.Common.Plugins.StructureMap.Core.csproj", "{4B66F442-B199-493A-9F66-E03C409F0012}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tavisca.Common.Plugins.RecyclableStreamPool.Core", "Submodules\platform-common\Tavisca.Common.Plugins.RecyclableStreamPool\Tavisca.Common.Plugins.RecyclableStreamPool.Core.csproj", "{92BAC79A-1E91-4551-922B-F975130EDDC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,9 +59,47 @@ Global
 		{2D072C2C-355F-4A4A-9C7A-4A1D7E107097}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D072C2C-355F-4A4A-9C7A-4A1D7E107097}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D072C2C-355F-4A4A-9C7A-4A1D7E107097}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B72E19A-12FE-42DD-A7C3-ED9526506664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B72E19A-12FE-42DD-A7C3-ED9526506664}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B72E19A-12FE-42DD-A7C3-ED9526506664}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B72E19A-12FE-42DD-A7C3-ED9526506664}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D270150D-A814-440E-A2F2-F557C3B536E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D270150D-A814-440E-A2F2-F557C3B536E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D270150D-A814-440E-A2F2-F557C3B536E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D270150D-A814-440E-A2F2-F557C3B536E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11BA85CB-A81B-4C0A-86E3-6EC7A5D4904A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11BA85CB-A81B-4C0A-86E3-6EC7A5D4904A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11BA85CB-A81B-4C0A-86E3-6EC7A5D4904A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11BA85CB-A81B-4C0A-86E3-6EC7A5D4904A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9707DA54-D373-4DC5-8338-DED47CEAF954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9707DA54-D373-4DC5-8338-DED47CEAF954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9707DA54-D373-4DC5-8338-DED47CEAF954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9707DA54-D373-4DC5-8338-DED47CEAF954}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D9E71C4-3DAC-4243-A3D9-8ADA1F226791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D9E71C4-3DAC-4243-A3D9-8ADA1F226791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D9E71C4-3DAC-4243-A3D9-8ADA1F226791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D9E71C4-3DAC-4243-A3D9-8ADA1F226791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B66F442-B199-493A-9F66-E03C409F0012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B66F442-B199-493A-9F66-E03C409F0012}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B66F442-B199-493A-9F66-E03C409F0012}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B66F442-B199-493A-9F66-E03C409F0012}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92BAC79A-1E91-4551-922B-F975130EDDC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92BAC79A-1E91-4551-922B-F975130EDDC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92BAC79A-1E91-4551-922B-F975130EDDC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92BAC79A-1E91-4551-922B-F975130EDDC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3C3D1188-55AB-46DF-9B20-31EAC8833A90} = {A89D538C-9E9E-4F8A-8457-C9E944C07BAA}
+		{9B72E19A-12FE-42DD-A7C3-ED9526506664} = {3C3D1188-55AB-46DF-9B20-31EAC8833A90}
+		{D270150D-A814-440E-A2F2-F557C3B536E1} = {3C3D1188-55AB-46DF-9B20-31EAC8833A90}
+		{11BA85CB-A81B-4C0A-86E3-6EC7A5D4904A} = {3C3D1188-55AB-46DF-9B20-31EAC8833A90}
+		{9707DA54-D373-4DC5-8338-DED47CEAF954} = {3C3D1188-55AB-46DF-9B20-31EAC8833A90}
+		{0D9E71C4-3DAC-4243-A3D9-8ADA1F226791} = {3C3D1188-55AB-46DF-9B20-31EAC8833A90}
+		{4B66F442-B199-493A-9F66-E03C409F0012} = {3C3D1188-55AB-46DF-9B20-31EAC8833A90}
+		{92BAC79A-1E91-4551-922B-F975130EDDC5} = {3C3D1188-55AB-46DF-9B20-31EAC8833A90}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C0D6A75-E2B5-4E2B-9834-5C0DC322FA29}

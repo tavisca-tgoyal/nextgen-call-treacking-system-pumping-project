@@ -1,5 +1,6 @@
 ﻿using NCTS.DatabaseMiddleLayer.Model;
 using NCTS.MiddleLayer.Translator;
+using NCTS.Proxy.Interfaces;
 using NCTS.Proxy.ProxyServices;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,13 @@ namespace NCTS.MiddleLayer.Utility
 {
     public class EmployeeHour:IEmployeeHour
     {
-        private CallTreeProxyService _callTreeServices;
+        private ICallTreeProxyService _callTreeServices;
         private int _numberOfHours = 15;
         List<EmployeeHours> employeeHours = new List<EmployeeHours>();
 
-        public EmployeeHour()
+        public EmployeeHour(ICallTreeProxyService callTreeProxyService)
         {
-            _callTreeServices = new CallTreeProxyService();
+            _callTreeServices = callTreeProxyService;
         }
 
         public async Task<List<EmployeeHours>> GetEmployeeHours()

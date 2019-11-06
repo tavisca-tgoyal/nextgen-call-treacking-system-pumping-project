@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace NCTS.Proxy.Interfaces
 {
     public interface ICallDataProxyService
     {
-        List<CallDataProxy> GetProxyObjects();
+        Task<List<CallDataProxy>> GetProxyObjects();
     }
 }

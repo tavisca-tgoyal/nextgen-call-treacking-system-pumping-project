@@ -8,21 +8,32 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Tavisca.Platform.Common.Configurations;
 
 namespace NCTS.Proxy.ProxyServices
 {
     public class CallTreeProxyService : ICallTreeProxyService
     {
+
+        private readonly IConfigurationProvider _configurationProvider;
+        public CallTreeProxyService(IConfigurationProvider configurationProvider)
+        {
+            _configurationProvider = configurationProvider;
+        }
+
         List<CallTreeProxy> callTreeProxyList = new List<CallTreeProxy>();
-        private ApplicationProxyService _applicationServices;
+        private IApplicationProxyService _applicationServices;
         private readonly string[] _environment = { "prod", "stage" };
 
 
-        public CallTreeProxyService()
+        public CallTreeProxyService(IApplicationProxyService applicationProxyService)
         {
-            _applicationServices = new ApplicationProxyService();
+            _applicationServices = applicationProxyService;
 
         }
+
+  
+
         public async Task<List<CallTreeProxy>> GetProxyObjects()
         {
             await GetCallTreeAsync();
@@ -40,7 +51,8 @@ namespace NCTS.Proxy.ProxyServices
                 foreach (var app in appProxiesModelList)
                 {
                     string application = app.name;
-                    string callTreeApi = "https://chatops.common.cnxloyalty.com/api/calltree/" + application + "/" + environment;
+                    var apiUrl = await _configurationProvider.GetGlobalConfigurationAsStringAsync("raw_data_url", "call_tree_api");
+                    string callTreeApi = apiUrl + application + "/" + environment;
 
                     tasks.Add(GetCallTreeJsonString(callTreeApi));
                     //string callTreeString = Task.Run(() => GetCallTreeJsonString(callTreeApi));                    
