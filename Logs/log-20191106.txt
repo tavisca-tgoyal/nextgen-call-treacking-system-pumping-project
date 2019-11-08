@@ -44,3 +44,14 @@
 2019-11-06 09:56:39.586 +05:30 [INF] Duplicate entry '24' for key 'PRIMARY'
 2019-11-06 14:28:48.351 +05:30 [INF] Pumping of CallData is executed
 2019-11-06 14:31:56.955 +05:30 [INF] Pumping of CallData is executed
+2019-11-06 16:20:09.593 +05:30 [INF] Pumping of CallData is executed
+2019-11-06 16:21:48.005 +05:30 [INF] Pumping of CallData is executed
+2019-11-06 16:25:37.492 +05:30 [INF] Pumping of CallData is executed
+2019-11-06 16:26:00.309 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 16:26:00.459 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 16:26:00.729 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 16:26:00.863 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 16:26:01.058 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 16:26:01.333 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-06 16:26:01.897 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-06 16:26:04.185 +05:30 [INF] Call Data is successfully passed to the DBLayer

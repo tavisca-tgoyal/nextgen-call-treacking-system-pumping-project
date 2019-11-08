@@ -7,6 +7,6 @@ namespace NCTS.MiddleLayer.Interfaces
 {
     public interface IEmployeeService
     {
-        Task Pump();
+        void Pump();
     }
 }

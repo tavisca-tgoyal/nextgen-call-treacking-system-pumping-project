@@ -1,13 +1,8 @@
-﻿using NCTS.DatabaseMiddleLayer;
+﻿using Common.Logging;
+using NCTS.DatabaseMiddleLayer;
 using NCTS.MiddleLayer.Interfaces;
 using NCTS.MiddleLayer.Translator;
 using NCTS.Proxy.Interfaces;
-using NCTS.Proxy.ProxyServices;
-using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NCTS.MiddleLayer.Services
 {
@@ -15,19 +10,20 @@ namespace NCTS.MiddleLayer.Services
     {
         private IDatabaseService _dataService;
         private ICallTreeProxyService _callTreeProxyService;
+        private ILogger _logger;
 
-        public CallTreeService(IDatabaseService databaseService, ICallTreeProxyService callTreeProxyService)
+        public CallTreeService(IDatabaseService databaseService, ICallTreeProxyService callTreeProxyService,ILogger logger)
         {
             _dataService = databaseService;
             _callTreeProxyService = callTreeProxyService;
+            _logger = logger;
         }
-        public async Task Pump()
+        public async void Pump()
         {
             var callTreeProxies = await _callTreeProxyService.GetProxyObjects();
             var callTreeList = callTreeProxies.ToModel();
             _dataService.InsertCallTrees(callTreeList);
-
-            Log.Information("CallTree Data is successfully passed to the DBLayer");
+            await _logger.WriteLogAsync(LogHelper.GetTraceLog("CallTree Data is successfully passed to the Database"));
         }
     }
 }

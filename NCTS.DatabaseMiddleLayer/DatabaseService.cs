@@ -1,9 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Linq;
 using System;
-using Serilog;
 using System.Collections.Generic;
 using NCTS.DatabaseMiddleLayer.Model;
+using Common.Logging;
 
 namespace NCTS.DatabaseMiddleLayer
 {
@@ -11,14 +11,17 @@ namespace NCTS.DatabaseMiddleLayer
     {
         private readonly string _connection;
         private MySqlConnection _sqlConnection;
-        public DatabaseService()
+        private ILogger _logger;
+
+        public DatabaseService(ILogger logger)
         {
             _connection = "SERVER=127.0.0.1;port = 3306;DATABASE=octs;UID=root;PASSWORD=123456";
             _sqlConnection = new MySqlConnection(_connection);
             _sqlConnection.Open();
+            _logger = logger;
         }
 
-        public void InsertApplications(List<Application> applicationList)
+        public async void InsertApplications(List<Application> applicationList)
         {
             //var applicationList = applicationProxyService.GetProxyObjects().ToList().ToModel();
             foreach (var application in applicationList)
@@ -31,12 +34,13 @@ namespace NCTS.DatabaseMiddleLayer
                 }
                 catch (Exception e)
                 {
-                    Log.Information(e.Message.ToString());
+                    await _logger.WriteLogAsync(LogHelper.GetTraceLog(e.Message.ToString()));
+
                 }
             }
         }
 
-        public void InsertCallData(List<CallData> callDataList)
+        public async void InsertCallData(List<CallData> callDataList)
         {
             foreach (var callData in callDataList)
             {
@@ -88,7 +92,13 @@ namespace NCTS.DatabaseMiddleLayer
                     {
                         if (!result.IsClosed)
                             result.Close();
-                        sqlQuery = "call octs.insert_employee('" + new Random().Next(5000,200000) + "','"
+                        sqlQuery = "call octs.get_minimum_id();";
+                        command = new MySqlCommand(sqlQuery, _sqlConnection);
+                        result = command.ExecuteReader();
+                        var id = result["Id"].ToString();
+                        if (!result.IsClosed)
+                            result.Close();
+                        sqlQuery = "call octs.insert_employee('" + int.Parse(id) + "','"
                                                                 + callData.EmployeeCode + "','"
                                                                 + "xyz" + "','"
                                                                 + "john" + "','"
@@ -102,12 +112,12 @@ namespace NCTS.DatabaseMiddleLayer
                     if (!result.IsClosed)
                         result.Close();
                     sqlCommand.ExecuteNonQuery();
-                    Log.Information(e.Message.ToString());
+                    await _logger.WriteLogAsync(LogHelper.GetTraceLog(e.Message.ToString()));
                 }
             }
         }
 
-        public void InsertCallTrees(List<CallTree> callTreeList)
+        public async void InsertCallTrees(List<CallTree> callTreeList)
         {
             
 
@@ -186,12 +196,12 @@ namespace NCTS.DatabaseMiddleLayer
                     if (!result.IsClosed)
                         result.Close();
                     sqlCommand.ExecuteNonQuery();
-                    Log.Information(e.Message.ToString());
+                    await _logger.WriteLogAsync(LogHelper.GetTraceLog(e.Message.ToString()));
                 }
             }
         }
 
-        public void InsertEmployeeHours(List<EmployeeHours> employeeHourList)
+        public async void InsertEmployeeHours(List<EmployeeHours> employeeHourList)
         {
             //var employeeHourList = await employeeHour.GetEmployeeHours();
             foreach (var empHour in employeeHourList)
@@ -208,13 +218,13 @@ namespace NCTS.DatabaseMiddleLayer
                     }
                     catch (Exception e)
                     {
-                        Log.Information(e.Message.ToString());
+                        await _logger.WriteLogAsync(LogHelper.GetTraceLog(e.Message.ToString()));
                     }
                 }
             }
         }
 
-        public void InsertEmployees(List<Employee> employeeList)
+        public async void InsertEmployees(List<Employee> employeeList)
         {
             //var employeeProxyList = await employeProxyService.GetProxyObjects();
             //var employeeList = employeeProxyList.ToModel();
@@ -235,7 +245,7 @@ namespace NCTS.DatabaseMiddleLayer
                 }
                 catch (Exception e)
                 {
-                    Log.Information(e.Message.ToString());
+                    await _logger.WriteLogAsync(LogHelper.GetTraceLog(e.Message.ToString()));
                 }
             }
         }

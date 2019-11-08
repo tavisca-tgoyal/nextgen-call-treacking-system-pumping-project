@@ -10,7 +10,9 @@ using Newtonsoft.Json;
 using Serilog;
 using Tavisca.Common.Plugins.StructureMap;
 using Tavisca.Platform.Common.Containers;
+using Tavisca.Platform.Common.Logging;
 using Tavisca.Platform.Common.Core.ServiceLocator;
+using Common.Logging;
 
 namespace NCTS.WebApi
 {
@@ -42,7 +44,7 @@ namespace NCTS.WebApi
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-
+            Logger.Initialize(new LogWriterFactory());
             StartLogger();
             return serviceProvider;
 

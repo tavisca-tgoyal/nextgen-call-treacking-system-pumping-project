@@ -7,6 +7,6 @@ namespace NCTS.MiddleLayer.Interfaces
 {
     public interface ICallTreeService
     {
-        Task Pump();
+        void Pump();
     }
 }

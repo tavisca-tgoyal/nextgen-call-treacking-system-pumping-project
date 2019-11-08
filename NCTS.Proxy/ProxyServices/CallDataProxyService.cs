@@ -19,15 +19,13 @@ namespace NCTS.Proxy.ProxyServices
             _configurationProvider = configurationProvider;
         }
 
-      
-
         private List<CallDataProxy> _callDataList;
-        private static int _frequency = 6;
+        private static int _frequency;
 
         public async Task<List<CallDataProxy>> GetProxyObjects()
         {
             var apiUrl = await _configurationProvider.GetGlobalConfigurationAsStringAsync("raw_data_url", "call_data_api");
-
+            _frequency = int.Parse(await _configurationProvider.GetGlobalConfigurationAsStringAsync("raw_data_url", "call_data_frequency"));
 
             var myHttpWebRequest = (HttpWebRequest)WebRequest.Create(string.Format(apiUrl));
 

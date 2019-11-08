@@ -1,10 +1,8 @@
-﻿using NCTS.DatabaseMiddleLayer;
+﻿using Common.Logging;
+using NCTS.DatabaseMiddleLayer;
 using NCTS.MiddleLayer.Interfaces;
 using NCTS.MiddleLayer.Translator;
 using NCTS.Proxy.Interfaces;
-using NCTS.Proxy.ProxyServices;
-using Serilog;
-using System.Threading.Tasks;
 
 namespace NCTS.MiddleLayer.Services
 {
@@ -12,18 +10,19 @@ namespace NCTS.MiddleLayer.Services
     {
         private IEmployeeProxyService _employeeProxyService;
         private IDatabaseService _databaseService;
-        public EmployeeService(IEmployeeProxyService employeeProxyService, IDatabaseService databaseService)
+        private ILogger _logger;
+        public EmployeeService(IEmployeeProxyService employeeProxyService, IDatabaseService databaseService,ILogger logger)
         {
             _employeeProxyService = employeeProxyService;
             _databaseService = databaseService;
+            _logger = logger;
         }
 
-        public async Task Pump()
+        public async void Pump()
         {
             var employeeList =  await _employeeProxyService.GetProxyObjects();
             _databaseService.InsertEmployees(employeeList.ToModel());
-
-            Log.Information("Employee Data is successfully passed to the DBLayer");
+            await _logger.WriteLogAsync(LogHelper.GetTraceLog("Employee Data is successfully passed to the Database"));
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using NCTS.DatabaseMiddleLayer;
+﻿using Common.Logging;
+using NCTS.DatabaseMiddleLayer;
 using NCTS.MiddleLayer.Interfaces;
 using NCTS.MiddleLayer.Services;
 using NCTS.MiddleLayer.Utility;
@@ -8,8 +9,10 @@ using System;
 using System.Collections.Generic;
 using Tavisca.Common.Plugins.Aws;
 using Tavisca.Common.Plugins.Configuration;
+using Tavisca.Common.Plugins.Redis;
 using Tavisca.Platform.Common.Configurations;
 using Tavisca.Platform.Common.Containers;
+using Tavisca.Platform.Common.Logging;
 
 namespace NCTS.WebApi
 {
@@ -40,6 +43,9 @@ namespace NCTS.WebApi
             yield return Registration.AsSingleton<ICallTreeProxyService, CallTreeProxyService>();
             yield return Registration.AsSingleton<IEmployeeProxyService, EmployeeProxyService>();
             yield return Registration.AsSingleton<IEmployeeHour, EmployeeHour>();
+            yield return Registration.AsSingleton<ILogger, ServiceLogger>();
+            yield return Registration.AsPerCall<IRedisLogSettingsProvider, RedisSettingsProvider>();
+            yield return Registration.AsSingleton<ILogSink, RedisSink>();
         }
     }
 }

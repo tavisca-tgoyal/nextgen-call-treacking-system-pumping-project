@@ -1,10 +1,8 @@
-﻿using NCTS.DatabaseMiddleLayer;
+﻿using Common.Logging;
+using NCTS.DatabaseMiddleLayer;
 using NCTS.MiddleLayer.Interfaces;
 using NCTS.MiddleLayer.Translator;
 using NCTS.Proxy.Interfaces;
-using NCTS.Proxy.ProxyServices;
-using Serilog;
-using System.Linq;
 
 namespace NCTS.MiddleLayer.Services
 {
@@ -12,11 +10,13 @@ namespace NCTS.MiddleLayer.Services
     {
         private IDatabaseService _dataService;
         private ICallDataProxyService _callDataProxyService;
+        private ILogger _logger;
 
-        public CallDataService(IDatabaseService databaseService,ICallDataProxyService callDataProxyService)
+        public CallDataService(IDatabaseService databaseService,ICallDataProxyService callDataProxyService,ILogger logger)
         {
             _dataService = databaseService;
             _callDataProxyService = callDataProxyService;
+            _logger = logger;
         }
 
         public async void Pump()
@@ -24,8 +24,7 @@ namespace NCTS.MiddleLayer.Services
             var callDataList = await _callDataProxyService.GetProxyObjects();
             var callList = callDataList.ToModel();
             _dataService.InsertCallData(callList);
-
-            Log.Information("Call Data is successfully passed to the DBLayer");
+            await _logger.WriteLogAsync(LogHelper.GetTraceLog("Call Data is successfully passed to the Database"));
             
         }
     }

@@ -16,23 +16,17 @@ namespace NCTS.Proxy.ProxyServices
     {
 
         private readonly IConfigurationProvider _configurationProvider;
-        public CallTreeProxyService(IConfigurationProvider configurationProvider)
+        private IApplicationProxyService _applicationServices;
+
+        private readonly string[] _environment = { "prod", "stage" };
+        List<CallTreeProxy> callTreeProxyList = new List<CallTreeProxy>();
+        
+
+        public CallTreeProxyService(IConfigurationProvider configurationProvider, IApplicationProxyService applicationProxyService)
         {
             _configurationProvider = configurationProvider;
-        }
-
-        List<CallTreeProxy> callTreeProxyList = new List<CallTreeProxy>();
-        private IApplicationProxyService _applicationServices;
-        private readonly string[] _environment = { "prod", "stage" };
-
-
-        public CallTreeProxyService(IApplicationProxyService applicationProxyService)
-        {
             _applicationServices = applicationProxyService;
-
         }
-
-  
 
         public async Task<List<CallTreeProxy>> GetProxyObjects()
         {

@@ -1,0 +1,23 @@
+2019-11-07 10:19:11.461 +05:30 [INF] Pumping of CallData is executed
+2019-11-07 10:20:11.386 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-07 10:20:11.554 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-07 10:20:11.714 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-07 10:20:11.962 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-07 10:20:12.245 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-07 10:20:12.467 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-07 10:20:12.763 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-07 10:20:12.992 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-07 10:20:13.434 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-07 10:20:13.627 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-07 10:20:13.956 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-07 10:20:14.101 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-07 10:20:14.485 +05:30 [INF] Column 'AlarmId' cannot be null
+2019-11-07 10:20:14.742 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-07 10:20:18.565 +05:30 [INF] Call Data is successfully passed to the DBLayer
+2019-11-07 12:41:30.970 +05:30 [INF] Column 'ApplicationId' cannot be null
+2019-11-07 12:41:32.207 +05:30 [INF] Call Data is successfully passed to the DBLayer
+2019-11-07 12:43:16.117 +05:30 [INF] Pumping of CallData is executed
+2019-11-07 12:43:26.125 +05:30 [INF] Call Data is successfully passed to the DBLayer
+2019-11-07 14:51:23.998 +05:30 [INF] Pumping of CallData is executed
+2019-11-07 14:51:41.307 +05:30 [INF] Call Data is successfully passed to the DBLayer
+2019-11-07 14:51:44.350 +05:30 [INF] Call Data is successfully passed to the DBLayer

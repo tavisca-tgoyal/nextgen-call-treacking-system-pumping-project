@@ -33,6 +33,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tavisca.Common.Plugins.Stru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tavisca.Common.Plugins.RecyclableStreamPool.Core", "Submodules\platform-common\Tavisca.Common.Plugins.RecyclableStreamPool\Tavisca.Common.Plugins.RecyclableStreamPool.Core.csproj", "{92BAC79A-1E91-4551-922B-F975130EDDC5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tavisca.Common.Plugins.Redis.Core", "Submodules\platform-common\Tavisca.Common.Plugins.Redis\Tavisca.Common.Plugins.Redis.Core.csproj", "{1A1D1C9F-9D60-4AF5-8633-262E441241C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{5AFDC2A4-E9D3-4A36-B315-3C9C2920870F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +91,14 @@ Global
 		{92BAC79A-1E91-4551-922B-F975130EDDC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92BAC79A-1E91-4551-922B-F975130EDDC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92BAC79A-1E91-4551-922B-F975130EDDC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A1D1C9F-9D60-4AF5-8633-262E441241C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A1D1C9F-9D60-4AF5-8633-262E441241C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A1D1C9F-9D60-4AF5-8633-262E441241C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A1D1C9F-9D60-4AF5-8633-262E441241C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AFDC2A4-E9D3-4A36-B315-3C9C2920870F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AFDC2A4-E9D3-4A36-B315-3C9C2920870F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AFDC2A4-E9D3-4A36-B315-3C9C2920870F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AFDC2A4-E9D3-4A36-B315-3C9C2920870F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +112,7 @@ Global
 		{0D9E71C4-3DAC-4243-A3D9-8ADA1F226791} = {3C3D1188-55AB-46DF-9B20-31EAC8833A90}
 		{4B66F442-B199-493A-9F66-E03C409F0012} = {3C3D1188-55AB-46DF-9B20-31EAC8833A90}
 		{92BAC79A-1E91-4551-922B-F975130EDDC5} = {3C3D1188-55AB-46DF-9B20-31EAC8833A90}
+		{1A1D1C9F-9D60-4AF5-8633-262E441241C1} = {3C3D1188-55AB-46DF-9B20-31EAC8833A90}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C0D6A75-E2B5-4E2B-9834-5C0DC322FA29}

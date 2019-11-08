@@ -1,6 +1,7 @@
 using Moq;
 using NCTS.DatabaseMiddleLayer.Model;
 using NCTS.MiddleLayer.Translator;
+using NCTS.Proxy.Interfaces;
 using NCTS.Proxy.ProxyServices;
 using Tavisca.Common.Plugins.Configuration;
 using Tavisca.Platform.Common.Configurations;
@@ -13,11 +14,12 @@ namespace NCTS.Tests
         private CallTreeProxyService _callTreeServices;
         //private readonly Mock<IConfigurationProvider> _configurationProvider = new Mock<IConfigurationProvider>();
         private readonly IConfigurationProvider _configurationProvider = new ConfigurationProvider("call_tracking_system");
+        private readonly IApplicationProxyService _applicationProxyService = new ApplicationProxyService();
 
 
         public CallTreeTest()
         {
-            _callTreeServices = new CallTreeProxyService(_configurationProvider);
+            _callTreeServices = new CallTreeProxyService(_configurationProvider,_applicationProxyService);
         }
 
         [Fact]
