@@ -32,6 +32,7 @@ namespace NCTS.WebApi
             yield return Registration.AsSingleton<ISensitiveDataProvider>(() => sensitiveDataProvider, KeyStore.Configuration.SensitiveDataProvider);
             Func<IConfigurationProvider> configurationProvider = () => new ConfigurationProvider(KeyStore.ApplicationName);
             yield return Registration.AsSingleton<IConfigurationProvider>(() => configurationProvider.Invoke());
+            yield return Registration.AsPerCall<ILogWriterFactory, LogWriterFactory>();
             yield return Registration.AsSingleton<IDatabaseService, DatabaseService>();
             yield return Registration.AsSingleton<IEmployeeService, EmployeeService>();
             yield return Registration.AsSingleton<IApplicationService, ApplicationService>();

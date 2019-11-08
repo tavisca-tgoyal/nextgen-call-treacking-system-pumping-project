@@ -73,13 +73,13 @@ namespace NCTS.WebApi
             app.UseMvc();
         }
 
-        private void StartLogger()
-        {
-            Log.Logger = new LoggerConfiguration()
-            .MinimumLevel.Verbose()
-            .WriteTo.File("../Logs/log-.txt", rollingInterval: RollingInterval.Day)
-            .CreateLogger();
-        }
+        //private void StartLogger()
+        //{
+        //    Log.Logger = new LoggerConfiguration()
+        //    .MinimumLevel.Verbose()
+        //    .WriteTo.File("../Logs/log-.txt", rollingInterval: RollingInterval.Day)
+        //    .CreateLogger();
+        //}
 
         private IModule[] GetModules()
         {
