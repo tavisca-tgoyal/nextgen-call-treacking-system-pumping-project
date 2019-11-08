@@ -13,6 +13,8 @@ using Tavisca.Platform.Common.Containers;
 using Tavisca.Platform.Common.Logging;
 using Tavisca.Platform.Common.Core.ServiceLocator;
 using Common.Logging;
+using Tavisca.Platform.Common.ExceptionManagement;
+using Tavisca.Platform.Common;
 
 namespace NCTS.WebApi
 {
@@ -37,6 +39,11 @@ namespace NCTS.WebApi
             var serviceLocator = new NetCoreServiceLocator(new ContainerFactory(services), GetModules());
             ServiceLocator.SetLocatorProvider(() => serviceLocator);
 
+            //Logger.Initialize(new LogWriterFactory());
+            //Initalize Logger factor and configure Exception Policy
+            Logger.Initialize(ServiceLocator.Current.GetInstance<ILogWriterFactory>());
+            ExceptionPolicy.Configure(ServiceLocator.Current.GetInstance<IErrorHandler>());
+
             var configurationProvider = ServiceLocator.Current.GetInstance<Tavisca.Platform.Common.Configurations.IConfigurationProvider>();
             var serviceProvider = ServiceLocator.Current.GetInstance<IServiceProvider>();
 
@@ -44,8 +51,7 @@ namespace NCTS.WebApi
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            Logger.Initialize(new LogWriterFactory());
-            StartLogger();
+            //StartLogger();
             return serviceProvider;
 
         }
