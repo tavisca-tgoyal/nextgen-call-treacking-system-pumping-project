@@ -12,6 +12,7 @@ using Tavisca.Common.Plugins.Configuration;
 using Tavisca.Common.Plugins.Redis;
 using Tavisca.Platform.Common.Configurations;
 using Tavisca.Platform.Common.Containers;
+using Tavisca.Platform.Common.ExceptionManagement;
 using Tavisca.Platform.Common.Logging;
 
 namespace NCTS.WebApi
@@ -33,6 +34,7 @@ namespace NCTS.WebApi
             Func<IConfigurationProvider> configurationProvider = () => new ConfigurationProvider(KeyStore.ApplicationName);
             yield return Registration.AsSingleton<IConfigurationProvider>(() => configurationProvider.Invoke());
             yield return Registration.AsPerCall<ILogWriterFactory, LogWriterFactory>();
+            yield return Registration.AsPerCall<IErrorHandler, ErrorHandler>();
             yield return Registration.AsSingleton<IDatabaseService, DatabaseService>();
             yield return Registration.AsSingleton<IEmployeeService, EmployeeService>();
             yield return Registration.AsSingleton<IApplicationService, ApplicationService>();

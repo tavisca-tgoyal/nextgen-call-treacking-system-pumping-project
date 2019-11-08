@@ -18,6 +18,17 @@ namespace Common.Logging
             };
             return apiLog;
         }
+        public static ExceptionLog GetExceptionLog(Exception exception)
+        {
+            var exceptionLog = new ExceptionLog()
+            {
+                ApplicationName = "call_tracking_system",
+                Message = exception.Message,
+                LogTime = DateTime.Today,
+                ExceptionType=exception.GetType().ToString()
+            };
+            return exceptionLog;
+        }
 
     }
 }

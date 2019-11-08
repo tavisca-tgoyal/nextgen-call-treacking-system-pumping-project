@@ -59,7 +59,7 @@ namespace NCTS.WebApi.Controllers
         [Route("api/pump/EmployeeHours")]
         public async void PumpEmployeeHours()
         {
-            _employeeHourService.Pump();
+            await _employeeHourService.Pump();
             await _logger.WriteLogAsync(LogHelper.GetTraceLog("Pumping of EmployeeHours is executed"));
         }
     }
