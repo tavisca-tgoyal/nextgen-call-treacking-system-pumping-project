@@ -15,7 +15,7 @@ namespace NCTS.MiddleLayer.Translator
             {
                 callData.Add(new CallData()
                 {
-                    ApplicationName = Format(call._source.application),
+                    ApplicationName = call._source.application.Format(),
                     Environment = call._source.environment,
                     CallAction = call._source.call_action,
                     EmployeeCode = call._source.employee_id,
@@ -26,7 +26,7 @@ namespace NCTS.MiddleLayer.Translator
             return callData;
         }
 
-        private static string Format(string application)
+        private static string Format(this string application)
         {
             string[] splittedAppName = new string[] { };
             string formattedAppName = string.Empty;
