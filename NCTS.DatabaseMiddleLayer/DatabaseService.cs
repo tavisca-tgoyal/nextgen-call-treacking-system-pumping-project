@@ -26,7 +26,7 @@ namespace NCTS.DatabaseMiddleLayer
             //var applicationList = applicationProxyService.GetProxyObjects().ToList().ToModel();
             foreach (var application in applicationList)
             {
-                var sqlString = "call ncts.insert_application('" + application.ApplicationName.ToLower() + "');";
+                var sqlString = "call ncts.insert_application('" + application.ApplicationName + "');";
                 var sqlCommand = new MySqlCommand(sqlString, _sqlConnection);
                 try
                 {
@@ -130,7 +130,7 @@ namespace NCTS.DatabaseMiddleLayer
 
             foreach (var callTree in callTreeList)
             {
-                var sqlString = "call ncts.insert_call_tree('"  + callTree.ApplicationName.ToLower() + "','" 
+                var sqlString = "call ncts.insert_call_tree('"  + callTree.ApplicationName + "','" 
                                                                 + callTree.Environment + "','" 
                                                                 + callTree.Level1Employee + "','" 
                                                                 + callTree.Level2Employee + "','" 

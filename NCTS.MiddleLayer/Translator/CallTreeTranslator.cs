@@ -6,20 +6,20 @@ namespace NCTS.MiddleLayer.Translator
 {
     public static class CallTreeTranslator
     {
-        public static List<CallTree> ToModel(this List<CallTreeProxy> proxyModelList)
+        public static List<CallTree> ToModel(this List<CallTreeProxy> callTreeProxyModelList)
         {
             List<CallTree> callTreeList = new List<CallTree>();
-            foreach (var proxyModel in proxyModelList)
+            foreach (var callTreeProxyModel in callTreeProxyModelList)
             {
-                if (proxyModel.Level1 != 0 || proxyModel.Level2 != 0 || proxyModel.Level3 != 0)
+                if (callTreeProxyModel.Level1 != 0 || callTreeProxyModel.Level2 != 0 || callTreeProxyModel.Level3 != 0)
                 {
                     callTreeList.Add(new CallTree()
                     {
-                        ApplicationName = proxyModel.Application,
-                        Environment = proxyModel.Environment,
-                        Level1Employee = proxyModel.Level1,
-                        Level2Employee = proxyModel.Level2,
-                        Level3Employee = proxyModel.Level3
+                        ApplicationName = callTreeProxyModel.Application.ToLower(),
+                        Environment = callTreeProxyModel.Environment,
+                        Level1Employee = callTreeProxyModel.Level1,
+                        Level2Employee = callTreeProxyModel.Level2,
+                        Level3Employee = callTreeProxyModel.Level3
                     });
                 }
             }

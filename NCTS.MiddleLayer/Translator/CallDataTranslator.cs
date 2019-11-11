@@ -18,7 +18,7 @@ namespace NCTS.MiddleLayer.Translator
                     ApplicationName = call._source.application.Format(),
                     Environment = call._source.environment,
                     CallAction = call._source.call_action,
-                    EmployeeCode = call._source.employee_id,
+                    EmployeeCode = call._source.employee_id.ToLower(),
                     AlarmName = call._source.alarm_name,
                     TimeStamp = call._source.time_stamp
                 });
