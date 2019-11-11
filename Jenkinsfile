@@ -39,7 +39,7 @@ pipeline {
         	
         	steps{
         		echo '==================================Building======================================='
-			bat 'dotnet2.2 restore nextgen-call-tracking-system-pumping-project.sln --source https://api.nuget.org/v3/index.json --source http://stage-packagegallery.tavisca.com/api/odata -v:q'
+			bat 'dotnet restore nextgen-call-tracking-system-pumping-project.sln --source https://api.nuget.org/v3/index.json --source http://stage-packagegallery.tavisca.com/api/odata -v:q'
         		bat 'dotnet build %solution% -p:Configuration=release -v:q'
         	}
         }
