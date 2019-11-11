@@ -111,8 +111,15 @@ namespace NCTS.DatabaseMiddleLayer
                     }
                     if (!result.IsClosed)
                         result.Close();
+                    try
+                {
                     sqlCommand.ExecuteNonQuery();
-                    await _logger.WriteLogAsync(LogHelper.GetTraceLog(e.Message.ToString()));
+                }
+                catch (Exception ex)
+                {
+                    await _logger.WriteLogAsync(LogHelper.GetTraceLog(ex.Message.ToString()));
+
+                }
                 }
             }
         }
@@ -195,8 +202,15 @@ namespace NCTS.DatabaseMiddleLayer
                     }
                     if (!result.IsClosed)
                         result.Close();
-                    sqlCommand.ExecuteNonQuery();
-                    await _logger.WriteLogAsync(LogHelper.GetTraceLog(e.Message.ToString()));
+                    try
+                    {
+                        sqlCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        await _logger.WriteLogAsync(LogHelper.GetTraceLog(ex.Message.ToString()));
+
+                    }
                 }
             }
         }
