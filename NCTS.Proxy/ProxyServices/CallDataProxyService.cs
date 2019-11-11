@@ -69,6 +69,8 @@ namespace NCTS.Proxy.ProxyServices
             string lte = string.Empty;
 
             int currentHour = Convert.ToInt32(DateTime.Now.Hour);
+            if (currentHour<=6)
+                date=DateTime.Today.AddDays(-1).ToString("yyyy-MM-dd");
             int startHour = ((currentHour / _frequency) * _frequency) - _frequency;
             int endHour = (currentHour / _frequency) * _frequency;
 

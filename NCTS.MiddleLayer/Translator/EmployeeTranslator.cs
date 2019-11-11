@@ -14,7 +14,7 @@ namespace NCTS.MiddleLayer.Translator
                 employeeList.Add(new Employee()
                 {
                     Email = employee.Email,
-                    EmployeeCode = employee.EmployeeId.ToLower(),
+                    EmployeeCode = employee.EmployeeId,
                     FirstName = employee.FirstName,
                     Id = employee.Id,
                     LastName = employee.LastName,

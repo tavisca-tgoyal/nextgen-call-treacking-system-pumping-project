@@ -12,5 +12,6 @@ namespace NCTS.DatabaseMiddleLayer.Model
         public string ApplicationName { get; set; }
         public string Environment { get; set; }
         public DateTime TimeStamp { get; set; }
+        public int CallTreeLevel { get; set; }
     }
 }

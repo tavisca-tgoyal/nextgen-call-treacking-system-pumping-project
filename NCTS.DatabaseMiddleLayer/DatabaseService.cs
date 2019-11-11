@@ -49,7 +49,8 @@ namespace NCTS.DatabaseMiddleLayer
                                                                 + callData.ApplicationName + "','" 
                                                                 + callData.Environment + "','" 
                                                                 + callData.AlarmName + "','" 
-                                                                + callData.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss") 
+                                                                + callData.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss") + "','"
+                                                                + callData.CallTreeLevel
                                                                 + "');";
                 var sqlCommand = new MySqlCommand(sqlString, _sqlConnection);
                 try
@@ -95,6 +96,7 @@ namespace NCTS.DatabaseMiddleLayer
                         sqlQuery = "call ncts.get_minimum_id();";
                         command = new MySqlCommand(sqlQuery, _sqlConnection);
                         result = command.ExecuteReader();
+                        result.Read();
                         var id = result["Id"].ToString();
                         if (!result.IsClosed)
                             result.Close();
