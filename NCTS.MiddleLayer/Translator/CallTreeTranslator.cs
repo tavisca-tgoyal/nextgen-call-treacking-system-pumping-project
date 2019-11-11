@@ -11,7 +11,7 @@ namespace NCTS.MiddleLayer.Translator
             List<CallTree> callTreeList = new List<CallTree>();
             foreach (var proxyModel in proxyModelList)
             {
-                if (proxyModel.Level1 != 0)
+                if (proxyModel.Level1 != 0 || proxyModel.Level2 != 0 || proxyModel.Level3 != 0)
                 {
                     callTreeList.Add(new CallTree()
                     {

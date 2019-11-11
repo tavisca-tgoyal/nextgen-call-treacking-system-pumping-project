@@ -15,7 +15,7 @@ namespace NCTS.DatabaseMiddleLayer
 
         public DatabaseService(ILogger logger)
         {
-            _connection = "SERVER=127.0.0.1;port = 3306;DATABASE=octs;UID=root;PASSWORD=123456";
+            _connection = "SERVER = ncts.cluster-cy6evezde3dw.us-east-1.rds.amazonaws.com; PORT = 3306; DATABASE = ncts; USER Id = ncts_admin; PASSWORD = vfr4VFR$vfr4VFR$";
             _sqlConnection = new MySqlConnection(_connection);
             _sqlConnection.Open();
             _logger = logger;
@@ -26,7 +26,7 @@ namespace NCTS.DatabaseMiddleLayer
             //var applicationList = applicationProxyService.GetProxyObjects().ToList().ToModel();
             foreach (var application in applicationList)
             {
-                var sqlString = "call octs.insert_application('" + application.ApplicationName + "');";
+                var sqlString = "call ncts.insert_application('" + application.ApplicationName.ToLower() + "');";
                 var sqlCommand = new MySqlCommand(sqlString, _sqlConnection);
                 try
                 {
@@ -44,7 +44,7 @@ namespace NCTS.DatabaseMiddleLayer
         {
             foreach (var callData in callDataList)
             {
-                var sqlString = "call octs.insert_call_data('"  + callData.CallAction + "','" 
+                var sqlString = "call ncts.insert_call_data('"  + callData.CallAction + "','" 
                                                                 + callData.EmployeeCode + "','" 
                                                                 + callData.ApplicationName + "','" 
                                                                 + callData.Environment + "','" 
@@ -58,7 +58,7 @@ namespace NCTS.DatabaseMiddleLayer
                 }
                 catch (Exception e)
                 {
-                    var sqlQuery = "call octs.validate_alarm_name('" + callData.AlarmName + "');";
+                    var sqlQuery = "call ncts.validate_alarm_name('" + callData.AlarmName + "');";
                     var command = new MySqlCommand(sqlQuery, _sqlConnection);
                     var result = command.ExecuteReader();
                     
@@ -66,39 +66,39 @@ namespace NCTS.DatabaseMiddleLayer
                     {
                         if (!result.IsClosed)
                             result.Close();
-                        sqlQuery = "call octs.insert_alarm('" + callData.AlarmName + "');";
+                        sqlQuery = "call ncts.insert_alarm('" + callData.AlarmName + "');";
                         command = new MySqlCommand(sqlQuery, _sqlConnection);
                         command.ExecuteNonQuery();
                     }
                     if (!result.IsClosed)
                         result.Close();
-                    sqlQuery = "call octs.validate_application_name('" + callData.ApplicationName + "');";
+                    sqlQuery = "call ncts.validate_application_name('" + callData.ApplicationName + "');";
                     command = new MySqlCommand(sqlQuery, _sqlConnection);
                     result = command.ExecuteReader();
                     if (!result.HasRows)
                     {
                         if (!result.IsClosed)
                             result.Close();
-                        sqlQuery = "call octs.insert_application('" + callData.ApplicationName + "');";
+                        sqlQuery = "call ncts.insert_application('" + callData.ApplicationName + "');";
                         command = new MySqlCommand(sqlQuery, _sqlConnection);
                         command.ExecuteNonQuery();
                     }
                     if (!result.IsClosed)
                         result.Close();
-                    sqlQuery = "call octs.validate_employee_code('" + callData.EmployeeCode + "');";
+                    sqlQuery = "call ncts.validate_employee_code('" + callData.EmployeeCode + "');";
                     command = new MySqlCommand(sqlQuery, _sqlConnection);
                     result = command.ExecuteReader();
                     if (!result.HasRows)
                     {
                         if (!result.IsClosed)
                             result.Close();
-                        sqlQuery = "call octs.get_minimum_id();";
+                        sqlQuery = "call ncts.get_minimum_id();";
                         command = new MySqlCommand(sqlQuery, _sqlConnection);
                         result = command.ExecuteReader();
                         var id = result["Id"].ToString();
                         if (!result.IsClosed)
                             result.Close();
-                        sqlQuery = "call octs.insert_employee('" + int.Parse(id) + "','"
+                        sqlQuery = "call ncts.insert_employee('" + int.Parse(id) + "','"
                                                                 + callData.EmployeeCode + "','"
                                                                 + "xyz" + "','"
                                                                 + "john" + "','"
@@ -123,7 +123,7 @@ namespace NCTS.DatabaseMiddleLayer
 
             foreach (var callTree in callTreeList)
             {
-                var sqlString = "call octs.insert_call_tree('"  + callTree.ApplicationName + "','" 
+                var sqlString = "call ncts.insert_call_tree('"  + callTree.ApplicationName.ToLower() + "','" 
                                                                 + callTree.Environment + "','" 
                                                                 + callTree.Level1Employee + "','" 
                                                                 + callTree.Level2Employee + "','" 
@@ -135,14 +135,14 @@ namespace NCTS.DatabaseMiddleLayer
                 }
                 catch (Exception e)
                 {
-                    var sqlQuery = "call octs.validate_employee_id('" + callTree.Level1Employee + "');";
+                    var sqlQuery = "call ncts.validate_employee_id('" + callTree.Level1Employee + "');";
                     var command = new MySqlCommand(sqlQuery, _sqlConnection);
                     var result = command.ExecuteReader();
                     if (!result.HasRows)
                     {
                         if (!result.IsClosed)
                             result.Close();
-                        sqlQuery = "call octs.insert_employee('" + callTree.Level1Employee + "','"
+                        sqlQuery = "call ncts.insert_employee('" + callTree.Level1Employee + "','"
                                                                 + 10009 + "','"
                                                                 + "xyz" + "','"
                                                                 + "john" + "','"
@@ -155,14 +155,14 @@ namespace NCTS.DatabaseMiddleLayer
                     }
                     if (!result.IsClosed)
                         result.Close();
-                    sqlQuery = "call octs.validate_employee_id('" + callTree.Level2Employee + "');";
+                    sqlQuery = "call ncts.validate_employee_id('" + callTree.Level2Employee + "');";
                     command = new MySqlCommand(sqlQuery, _sqlConnection);
                     result = command.ExecuteReader();
                     if (!result.HasRows)
                     {
                         if (!result.IsClosed)
                             result.Close();
-                        sqlQuery = "call octs.insert_employee('" + callTree.Level2Employee + "','"
+                        sqlQuery = "call ncts.insert_employee('" + callTree.Level2Employee + "','"
                                                                 + 10010 + "','"
                                                                 + "xyz" + "','"
                                                                 + "john" + "','"
@@ -175,14 +175,14 @@ namespace NCTS.DatabaseMiddleLayer
                     }
                     if (!result.IsClosed)
                         result.Close();
-                    sqlQuery = "call octs.validate_employee_id('" + callTree.Level3Employee + "');";
+                    sqlQuery = "call ncts.validate_employee_id('" + callTree.Level3Employee + "');";
                     command = new MySqlCommand(sqlQuery, _sqlConnection);
                     result = command.ExecuteReader();
                     if (!result.HasRows)
                     {
                         if (!result.IsClosed)
                             result.Close();
-                        sqlQuery = "call octs.insert_employee('" + callTree.Level3Employee + "','"
+                        sqlQuery = "call ncts.insert_employee('" + callTree.Level3Employee + "','"
                                                                 + 10011 + "','"
                                                                 + "xyz" + "','"
                                                                 + "john" + "','"
@@ -209,7 +209,7 @@ namespace NCTS.DatabaseMiddleLayer
 
                 if(empHour.EmployeeId!=0)
                 {
-                    var sqlString = "call octs.insert_hours_on_support('" + empHour.EmployeeId + "','"
+                    var sqlString = "call ncts.insert_hours_on_support('" + empHour.EmployeeId + "','"
                                                                         + empHour.Hours + "');";
                     var sqlCommand = new MySqlCommand(sqlString, _sqlConnection);
                     try
@@ -230,7 +230,7 @@ namespace NCTS.DatabaseMiddleLayer
             //var employeeList = employeeProxyList.ToModel();
             foreach (var employee in employeeList)
             {
-                var sqlString = "call octs.insert_employee('"   + employee.Id + "','" 
+                var sqlString = "call ncts.insert_employee('"   + employee.Id + "','" 
                                                                 + employee.EmployeeCode + "','" 
                                                                 + employee.Squad + "','" 
                                                                 + employee.FirstName + "','" 
