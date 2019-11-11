@@ -3,8 +3,35 @@ pipeline {
 	
 	parameters
 	{
-		string(default value: "nextgen-call-tracking-system-pumping-project.sln",description:'Solution File',name:'solution')
-		string(default value:"NCTS.Tests/NCTS.Tests.scproj",description:'Test File',name:'Test')
+	string (
+
+ 
+			name : 'solution',
+
+ 
+			defaultValue: 'nextgen-call-tracking-system-pumping-project.sln',
+
+ 
+			description: 'Solution File'
+
+ 
+            )
+			
+			
+	string (
+
+ 
+			name : 'Test',
+
+ 
+			defaultValue: 'NCTS.Tests/NCTS.Tests.scproj',
+
+ 
+			description: 'Test File'
+
+ 
+			)
+
 	}
 	
     stages { 
