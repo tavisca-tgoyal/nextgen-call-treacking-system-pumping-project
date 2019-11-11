@@ -24,7 +24,7 @@ pipeline {
 			name : 'Test',
 
  
-			defaultValue: 'NCTS.Tests/NCTS.Tests.scproj',
+			defaultValue: 'NCTS.Tests/NCTS.Tests.csproj',
 
  
 			description: 'Test File'
