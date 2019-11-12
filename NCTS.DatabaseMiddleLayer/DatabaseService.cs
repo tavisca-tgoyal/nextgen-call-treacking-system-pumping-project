@@ -44,11 +44,11 @@ namespace NCTS.DatabaseMiddleLayer
         {
             foreach (var callData in callDataList)
             {
-                var sqlString = "call ncts.insert_call_data('"  + callData.CallAction + "','" 
-                                                                + callData.EmployeeCode + "','" 
-                                                                + callData.ApplicationName + "','" 
-                                                                + callData.Environment + "','" 
-                                                                + callData.AlarmName + "','" 
+                var sqlString = "call ncts.insert_call_data('" + callData.CallAction + "','"
+                                                                + callData.EmployeeCode + "','"
+                                                                + callData.ApplicationName + "','"
+                                                                + callData.Environment + "','"
+                                                                + callData.AlarmName + "','"
                                                                 + callData.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss") + "','"
                                                                 + callData.CallTreeLevel
                                                                 + "');";
@@ -62,8 +62,8 @@ namespace NCTS.DatabaseMiddleLayer
                     var sqlQuery = "call ncts.validate_alarm_name('" + callData.AlarmName + "');";
                     var command = new MySqlCommand(sqlQuery, _sqlConnection);
                     var result = command.ExecuteReader();
-                    
-                    if(!result.HasRows)
+
+                    if (!result.HasRows)
                     {
                         if (!result.IsClosed)
                             result.Close();
@@ -114,28 +114,28 @@ namespace NCTS.DatabaseMiddleLayer
                     if (!result.IsClosed)
                         result.Close();
                     try
-                {
-                    sqlCommand.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    await _logger.WriteLogAsync(LogHelper.GetTraceLog(ex.Message.ToString()));
+                    {
+                        sqlCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        await _logger.WriteLogAsync(LogHelper.GetTraceLog(ex.Message.ToString()));
 
-                }
+                    }
                 }
             }
         }
 
         public async void InsertCallTrees(List<CallTree> callTreeList)
         {
-            
+
 
             foreach (var callTree in callTreeList)
             {
-                var sqlString = "call ncts.insert_call_tree('"  + callTree.ApplicationName + "','" 
-                                                                + callTree.Environment + "','" 
-                                                                + callTree.Level1Employee + "','" 
-                                                                + callTree.Level2Employee + "','" 
+                var sqlString = "call ncts.insert_call_tree('" + callTree.ApplicationName + "','"
+                                                                + callTree.Environment + "','"
+                                                                + callTree.Level1Employee + "','"
+                                                                + callTree.Level2Employee + "','"
                                                                 + callTree.Level3Employee + "');";
                 var sqlCommand = new MySqlCommand(sqlString, _sqlConnection);
                 try
@@ -172,7 +172,7 @@ namespace NCTS.DatabaseMiddleLayer
                         if (!result.IsClosed)
                             result.Close();
                         sqlQuery = "call ncts.insert_employee('" + callTree.Level2Employee + "','"
-                                                                + 10010 + "','"
+                                                                + 10009 + "','"
                                                                 + "xyz" + "','"
                                                                 + "john" + "','"
                                                                 + "diesel" + "','"
@@ -192,7 +192,7 @@ namespace NCTS.DatabaseMiddleLayer
                         if (!result.IsClosed)
                             result.Close();
                         sqlQuery = "call ncts.insert_employee('" + callTree.Level3Employee + "','"
-                                                                + 10011 + "','"
+                                                                + 10009 + "','"
                                                                 + "xyz" + "','"
                                                                 + "john" + "','"
                                                                 + "diesel" + "','"
@@ -223,7 +223,7 @@ namespace NCTS.DatabaseMiddleLayer
             foreach (var empHour in employeeHourList)
             {
 
-                if(empHour.EmployeeId!=0)
+                if (empHour.EmployeeId != 0)
                 {
                     var sqlString = "call ncts.insert_hours_on_support('" + empHour.EmployeeId + "','"
                                                                         + empHour.Hours + "');";
@@ -246,13 +246,13 @@ namespace NCTS.DatabaseMiddleLayer
             //var employeeList = employeeProxyList.ToModel();
             foreach (var employee in employeeList)
             {
-                var sqlString = "call ncts.insert_employee('"   + employee.Id + "','" 
-                                                                + employee.EmployeeCode + "','" 
-                                                                + employee.Squad + "','" 
-                                                                + employee.FirstName + "','" 
-                                                                + employee.LastName + "','" 
-                                                                + employee.Email + "','" 
-                                                                + employee.PhoneNumber 
+                var sqlString = "call ncts.insert_employee('" + employee.Id + "','"
+                                                                + employee.EmployeeCode + "','"
+                                                                + employee.Squad + "','"
+                                                                + employee.FirstName + "','"
+                                                                + employee.LastName + "','"
+                                                                + employee.Email + "','"
+                                                                + employee.PhoneNumber
                                                                 + "');";
                 var sqlCommand = new MySqlCommand(sqlString, _sqlConnection);
                 try
